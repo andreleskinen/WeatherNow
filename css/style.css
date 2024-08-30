@@ -98,13 +98,12 @@ nav a {
  
  
 section {
-    padding: 2rem;
+    padding: 6rem;
 }
  
 .weather-section {
     text-align: center;
-    margin-top: 1px;
-    margin-bottom: 10px;
+    padding: 2rem;
 }
  
 .container {
@@ -119,7 +118,7 @@ section {
  
 footer {
     background-color: rgba(0, 31, 84, 0.7);
-    text-align: center;
+    text-align: right;
     padding: 0rem 0;
     position: fixed;
     bottom: 0;
