@@ -1,0 +1,24 @@
+trigger:
+  branches:
+    include:
+      - master  # Adjust this if your main branch is named differently
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+  displayName: 'Install Python'
+
+- script: |
+    echo "No build step required for static site"
+  displayName: 'Skip Build Step'
+
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: '<your-azure-subscription>'
+    appName: '<your-app-service-name>'
+    package: '$(System.DefaultWorkingDirectory)/*.html'
+  displayName: 'Deploy to Azure Web App'
