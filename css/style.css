@@ -7,23 +7,8 @@ body {
 }
  
  
-@keyframes sun-move {
-    0% { transform: translateX(-10%) translateY(10%); }
-    50% { transform: translateX(50%) translateY(-10%); }
-    100% { transform: translateX(110%) translateY(10%); }
-}
- 
-.sun {
-    position: absolute;
-    top: 20%;
-    left: -10%;
-    width: 100px;
-    height: 100px;
-    background-color: #FFD700;
-    border-radius: 50%;
-    box-shadow: 0 0 50px 20px #FFD700;
-    animation: sun-move 20s linear infinite;
-}
+
+
  
  
 @keyframes cloud-move {
@@ -167,7 +152,7 @@ body::before, body::after, body .cloud, body .wind {
 }
  
 body::before {
-    background: radial-gradient(circle, #FFD700 50%, rgba(255,215,0,0) 70%);
+    
     width: 150px;
     height: 150px;
     top: 10%;
