@@ -1,8 +1,8 @@
 body {
-    margin:0 ;
+    margin: 0%;
     font-family: Arial, sans-serif;
     color: #ffffff;
-    background: linear-gradient(180deg, #ffffff, #00BFFF);
+    background: linear-gradient(180deg, #ffffff, #8dfafa);
     overflow: hidden;
 }
  
@@ -16,12 +16,12 @@ body {
  
 .cloud {
     position: absolute;
-    background: #FFFFFF;
+    background: #2d2dea;
     border-radius: 50px;
     height: 60px;
     width: 150px;
     top: 10%;
-    animation: cloud-move 30s linear infinite;
+    animation: cloud-move 3s linear infinite;
 }
  
 .cloud:before, .cloud:after {
@@ -64,8 +64,9 @@ body {
  
  
 header {
-    background-color: rgba(0, 31, 84, 0.7);
-     height:120px ;
+    background-color: rgba(246, 247, 249, 0.7);
+     height:110px ;
+   
     
 }
  
@@ -82,7 +83,7 @@ nav ul {
 
 
 nav a {
-    color: #f7f5f5;
+    color: #ffffff;
     text-decoration: none;
     font-weight: bold;
 }
@@ -95,7 +96,7 @@ nav a {
 }
  
 .moving-text {
-    animation: floatEffect 2s ease-in-out infinite;
+    animation: floatEffect 3s ease-in-out infinite;
     font-size: 2.5rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -103,25 +104,24 @@ nav a {
  
  
 section {
-    padding: 6rem;
+    padding:10rem;
 }
  
 .weather-section {
-    text-align: center;
-    padding: 1rem;
+    text-align:center;
+    padding: 0.2rem;
+
   
 }
  
 .container {
-    max-width: 390px;
-    max-height:389px;
-    margin:auto;
+    max-width: 30%;  /* Behåller en proportionell maxbredd */
+    margin: auto;
     background-color: rgba(0, 31, 84, 0.7);
-    padding:0px;
-    border-radius:5px;
-    position: center;
+    border-radius: 5px;
+    padding: 20px;  /* Lägg till lite padding för inre utrymme */
 }
- 
+
  
 footer {
     background-color: rgba(0, 31, 84, 0.7);
@@ -130,12 +130,13 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+    height: 6%;
 }
  
  
 input[type="text"] {
-    padding: 0.3rem;
-    border: 1px solid #ccc;
+    padding: 0.4rem;
+    border:3px solid #ccc;
     border-radius: 5px;
     margin-right: 10px;
     width:70%;
@@ -148,6 +149,8 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 6px;
+    margin-bottom:6px ;
    
 }
  
