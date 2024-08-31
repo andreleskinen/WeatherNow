@@ -9,8 +9,6 @@ body {
  
 
 
- 
- 
 @keyframes cloud-move {
     0% { transform: translateX(-150%); }
     100% { transform: translateX(150%); }
@@ -67,7 +65,8 @@ body {
  
 header {
     background-color: rgba(0, 31, 84, 0.7);
-    padding: 3rem;
+     height:120px ;
+    
 }
  
 nav ul {
@@ -75,7 +74,13 @@ nav ul {
     display: flex;
     justify-content: space-around;
 }
- 
+
+.header-image{
+    height: 100%;
+    width: 100%;
+}
+
+
 nav a {
     color: #FFFFFF;
     text-decoration: none;
@@ -108,11 +113,12 @@ section {
  
 .container {
     max-width: 400px;
-    max-height:356px;
-    margin: 0 auto;
+    max-height:300px;
+    margin: auto;
     background-color: rgba(1, 52, 141, 0.8);
-    padding: 20px;
-    border-radius: 10px;
+    padding:10px;
+    border-radius:7px;
+    position: center;
 }
  
  
@@ -189,13 +195,15 @@ body::after {
     animation-duration: 50s;
 }
 
+
+
 @media screen and (max-width: 768px) {
     .moving-text {
         font-size: 1.5rem;
     }
     
     header {
-        padding: 1.5rem;
+        padding: 0rem;
         flex-direction: column;
     }
     
@@ -205,7 +213,7 @@ body::after {
     }
 
     .container {
-        padding: 15px;
+        padding: 10px;
         max-width: 100%;
     }
     
