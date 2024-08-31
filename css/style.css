@@ -82,7 +82,7 @@ nav ul {
 
 
 nav a {
-    color: #FFFFFF;
+    color: #f7f5f5;
     text-decoration: none;
     font-weight: bold;
 }
@@ -108,16 +108,17 @@ section {
  
 .weather-section {
     text-align: center;
-    padding: 2rem;
+    padding: 1rem;
+  
 }
  
 .container {
-    max-width: 400px;
-    max-height:300px;
-    margin: auto;
-    background-color: rgba(1, 52, 141, 0.8);
-    padding:10px;
-    border-radius:7px;
+    max-width: 390px;
+    max-height:389px;
+    margin:auto;
+    background-color: rgba(0, 31, 84, 0.7);
+    padding:0px;
+    border-radius:5px;
     position: center;
 }
  
@@ -133,20 +134,21 @@ footer {
  
  
 input[type="text"] {
-    padding: 0.4rem;
+    padding: 0.3rem;
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-right: 10px;
-    width: 70%;
+    width:70%;
 }
  
 button {
-    padding: 0.5rem 2rem;
-    background-color: #007BFF;
+    padding: 0.4rem 1rem;
+    background-color: #0978ef;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+   
 }
  
 button:hover {
@@ -166,7 +168,7 @@ body::before {
     top: 10%;
     left: -10%;
     border-radius: 50%;
-    animation: sun-move 30s linear infinite;
+    animation: sun-move 3s linear infinite;
 }
  
 body::after {
