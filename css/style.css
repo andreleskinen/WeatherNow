@@ -219,7 +219,7 @@ body::after {
 
     .container {
         padding: 10px;
-        max-width: 100%;
+        max-width: 60%;
     }
     
     input[type="text"] {
@@ -252,7 +252,7 @@ body::after {
     
     .container {
         padding: 10px;
-        max-width: 100%;
+        max-width: 60%;
     }
     
     input[type="text"] {
