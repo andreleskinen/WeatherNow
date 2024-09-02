@@ -247,7 +247,7 @@ body::after {
     }
 
     header {
-        padding: 1rem;
+        padding: 0rem;
     }
     
     .container {
