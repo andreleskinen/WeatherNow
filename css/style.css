@@ -209,7 +209,7 @@ body::after {
     
     header {
         padding: 0rem;
-        flex-direction: column;
+        
     }
     
     nav ul {
