@@ -8,7 +8,7 @@ body {
     overflow: hidden;
     height: 100vh;
     background: url('../img/vinter.jpg') no-repeat center center fixed; /* Första bilden */
-    background-size: cover;
+    background-size:cover ;
     animation: backgroundAnimation 10s infinite; /* 30s är total längd för animeringen */
 }
 
@@ -189,7 +189,7 @@ button:hover {
 
 @media screen and (max-width: 480px) {
     .container {
-        max-width: 5%;
+        max-width: 50%;
         margin-top: 10%;
         padding: 1rem;
     }
@@ -209,7 +209,7 @@ button:hover {
 
 @media screen and (max-width: 320px) {
     .container {
-        max-width: 5%;
+        max-width: 50%;
         padding: 0.5rem;
     }
 
