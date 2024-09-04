@@ -12,6 +12,13 @@ body {
     animation: backgroundAnimation 10s infinite; /* 30s är total längd för animeringen */
 }
 
+.responsive-img {
+    max-width: 100%;
+    height: auto; /* Behåll bildens proportioner */
+    display: block;
+    margin: auto; /* Centrerar bilden */
+}
+
 @keyframes backgroundAnimation {
     0% {
         background-image: url('../img/strand.jpg');
