@@ -154,53 +154,11 @@ button:hover {
     background-color: #0056b3;
 }
  
- 
-body::before, body::after, body .cloud, body .wind {
-    content: '';
-    position: absolute;
-}
- 
-body::before {
-    
-    width: 110px;
-    height: 110px;
-    top: 10%;
-    left: -10%;
-    border-radius: 50%;
-    animation: sun-move 3s linear infinite;
-}
- 
-body::after {
-    background: linear-gradient(90deg, rgba(255,255,255,0) 30%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 70%);
-    width: 100px;
-    height: 2px;
-    top: 50%;
-    left: -10%;
-    animation: wind-move 5s linear infinite;
-}
- 
-.cloud {
-    top: 10%;
-    left: -20%;
-}
- 
-.cloud:nth-child(2) {
-    top: 15%;
-    left: 10%;
-    animation-duration: 40s;
-}
- 
-.cloud:nth-child(3) {
-    top: 20%;
-    left: -30%;
-    animation-duration: 50s;
-}
-
 
 
 @media screen and (max-width: 1024px) {
     .container {
-        max-width: 50%;
+        max-width:50%;
         padding: 1rem;
     }
 
@@ -211,7 +169,7 @@ body::after {
 
 @media screen and (max-width: 768px) {
     .container {
-        max-width: 70%;
+        max-width: 50%;
         padding: 1rem;
     }
 
@@ -231,7 +189,7 @@ body::after {
 
 @media screen and (max-width: 480px) {
     .container {
-        max-width: 50%;
+        max-width: 5%;
         margin-top: 10%;
         padding: 1rem;
     }
@@ -251,7 +209,7 @@ body::after {
 
 @media screen and (max-width: 320px) {
     .container {
-        max-width: 50%;
+        max-width: 5%;
         padding: 0.5rem;
     }
 
