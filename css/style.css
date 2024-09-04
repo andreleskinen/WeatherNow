@@ -7,8 +7,8 @@ body {
     color: #ffffff;
     overflow: hidden;
     height: 100vh;
-    background: url('../img/vinter.jpg') no-repeat center center fixed; /* Första bilden */
-    background-size:auto 100% ;
+    background: url('../img/Sommar.jpg') no-repeat center center fixed; /* Första bilden */
+    background-size:cover ;
     animation: backgroundAnimation 10s infinite; /* 30s är total längd för animeringen */
 }
 
@@ -20,13 +20,13 @@ body {
         background-image: url('../img/vinter1.jpg');
     }
     50% {
-        background-image: url('../img/Sommar.jpg');
+        background-image: url('../img/Sommar1.jpg');
     }
     75% {
         background-image: url('../img/solned1.jpg');
     }
     100% {
-        background-image: url('../img/vinter.jpg'); /* Återgå till första bilden */
+        background-image: url('../img/Sommar.jpg'); /* Återgå till första bilden */
     }
 }
 
@@ -171,6 +171,7 @@ button:hover {
     .container {
         max-width: 50%;
         padding: 1rem;
+        margin-top: 10%;
     }
 
     .moving-text {
@@ -190,7 +191,6 @@ button:hover {
 @media screen and (max-width: 480px) {
     .container {
         max-width: 50%;
-        margin-top: 10%;
         padding: 1rem;
     }
 
@@ -209,8 +209,9 @@ button:hover {
 
 @media screen and (max-width: 320px) {
     .container {
-        max-width: 50%;
+        max-width: 70%;
         padding: 0.5rem;
+        margin-top: 10%;
     }
 
     .moving-text {
