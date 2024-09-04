@@ -11,7 +11,7 @@ body {
     background-size: cover;
     animation: backgroundAnimation 50s infinite; /* 30s är total längd för animeringen */
 }
-
+`/*
 @keyframes backgroundAnimation {
     0% {
         background-image: url('../img/Rainbow.jpg');
@@ -36,8 +36,7 @@ main {
 }
 
  
- 
- /*
+/*
 @keyframes wind-move {
     0% { left: -20%; opacity: 0; }
     50% { left: 50%; opacity: 0.5; }
