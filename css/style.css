@@ -7,26 +7,26 @@ body {
     color: #ffffff;
     overflow: hidden;
     height: 100vh;
-    background: url('../img/Sommar.jpg') no-repeat center center fixed; /* Första bilden */
+    background: url('../img/vinter.jpg') no-repeat center center fixed; /* Första bilden */
     background-size:cover ;
     animation: backgroundAnimation 10s infinite; /* 30s är total längd för animeringen */
 }
 
 @keyframes backgroundAnimation {
     0% {
-        background-image: url('../img/Rainbow.jpg');
+        background-image: url('../img/strand.jpg');
     }
     25% {
         background-image: url('../img/vinter1.jpg');
     }
     50% {
-        background-image: url('../img/Sommar1.jpg');
+        background-image: url('../img/strand.jpg');
     }
     75% {
-        background-image: url('../img/solned1.jpg');
+        background-image: url('../img/vinter.jpg');
     }
     100% {
-        background-image: url('../img/Sommar.jpg'); /* Återgå till första bilden */
+        background-image: url('../img/vinter.jpg'); /* Återgå till första bilden */
     }
 }
 
