@@ -9,7 +9,7 @@ body {
     height: 100vh;
     background: url('../img/vinter.jpg') no-repeat center center fixed; /* Första bilden */
     background-size: cover;
-    animation: backgroundAnimation 50s infinite; /* 30s är total längd för animeringen */
+    animation: backgroundAnimation 10s infinite; /* 30s är total längd för animeringen */
 }
 
 @keyframes backgroundAnimation {
@@ -231,7 +231,7 @@ body::after {
 
 @media screen and (max-width: 480px) {
     .container {
-        max-width: 90%;
+        max-width: 50%;
         margin-top: 10%;
         padding: 1rem;
     }
@@ -251,7 +251,7 @@ body::after {
 
 @media screen and (max-width: 320px) {
     .container {
-        max-width: 95%;
+        max-width: 50%;
         padding: 0.5rem;
     }
 
