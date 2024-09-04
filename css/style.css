@@ -1,56 +1,50 @@
+/* Se till att main täcker hela skärmen */
+
+
 body {
-    margin: 0%;
+    margin: 0;
     font-family: Arial, sans-serif;
     color: #ffffff;
-    background: linear-gradient(180deg, #ffffff, #8dfafa);
     overflow: hidden;
+    height: 100vh;
+    background: url('../img/vinter.jpg') no-repeat center center fixed; /* Första bilden */
+    background-size: cover;
+    animation: backgroundAnimation 50s infinite; /* 30s är total längd för animeringen */
 }
- 
- 
 
+@keyframes backgroundAnimation {
+    0% {
+        background-image: url('../img/Rainbow.jpg');
+    }
+    25% {
+        background-image: url('../img/vinter1.jpg');
+    }
+    50% {
+        background-image: url('../img/Sommar.jpg');
+    }
+    75% {
+        background-image: url('../img/solned1.jpg');
+    }
+    100% {
+        background-image: url('../img/vinter.jpg'); /* Återgå till första bilden */
+    }
+}
 
-@keyframes cloud-move {
-    0% { transform: translateX(-150%); }
-    100% { transform: translateX(150%); }
+main {
+    height: 100vh; /* Gör att main täcker hela skärmen */
+    position: relative; /* Behövs för att placera .container ovanpå bilden */
 }
- 
-.cloud {
-    position: absolute;
-    background: #2d2dea;
-    border-radius: 50px;
-    height: 60px;
-    width: 150px;
-    top: 10%;
-    animation: cloud-move 3s linear infinite;
-}
- 
-.cloud:before, .cloud:after {
-    content: '';
-    position: absolute;
-    background: #FFFFFF;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-}
- 
-.cloud:before {
-    top: -40px;
-    left: 10px;
-}
- 
-.cloud:after {
-    top: -20px;
-    left: 60px;
-}
+
  
  
+ /*
 @keyframes wind-move {
     0% { left: -20%; opacity: 0; }
     50% { left: 50%; opacity: 0.5; }
     100% { left: 120%; opacity: 0; }
 }
  
-.wind {
+/*.wind {
     position: absolute;
     top: 40%;
     left: -20%;
@@ -60,7 +54,7 @@ body {
     opacity: 0.5;
     box-shadow: 0 0 10px #ebe5e5;
     animation: wind-move 5s linear infinite;
-}
+}*/
  
  
 header {
@@ -96,7 +90,7 @@ nav a {
 }
  
 .moving-text {
-    animation: floatEffect 3s ease-in-out infinite;
+    animation: floatEffect s ease-in-out infinite;
     font-size: 2.5rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -117,7 +111,7 @@ section {
 .container {
     max-width: 30%;  /* Behåller en proportionell maxbredd */
     margin: auto;
-    margin-top: 1%;
+    margin-top: 5%;
     background-color: rgba(0, 31, 84, 0.7);
     border-radius: 5px;
     padding:10px;  /* Lägg till lite padding för inre utrymme */
@@ -219,10 +213,10 @@ body::after {
     }
 
     .container {
-      position:center;
+      
       max-width: 60%;
       padding: 0.5rem 1rem;
-      margin-top: 5%;
+      margin-top: 20%;
     }
     
     input[type="text"] {
@@ -233,15 +227,7 @@ body::after {
         padding: 0.5rem 1rem;
     }
     
-    .cloud {
-        height: 40px;
-        width: 100px;
-    }
-    
-    .cloud:before, .cloud:after {
-        width: 60px;
-        height: 60px;
-    }
+   
 }
 
 @media screen and (max-width: 480px) {
@@ -254,10 +240,10 @@ body::after {
     }
     
     .container {
-        margin-top: 5%;
+        margin-top:50%;
         padding: 10px;
-        max-width: 50%;
-        position: center;
+        max-width: 5%;
+       
     }
     
     input[type="text"] {
@@ -268,13 +254,4 @@ body::after {
         padding: 0.5rem 0.8rem;
     }
 
-    .cloud {
-        height: 30px;
-        width: 80px;
-    }
-    
-    .cloud:before, .cloud:after {
-        width: 50px;
-        height: 50px;
-    }
 }
