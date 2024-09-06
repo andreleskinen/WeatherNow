@@ -8,12 +8,33 @@ body {
     overflow-x: hidden; /* Förhindra horisontell scroll */
 }
 
+/* Header styling */
 header {
     background-color: #005f99; /* Mörk blå bakgrund */
-    padding: 20px;
-    text-align: center;
+    padding:1%;
+    text-align:center;
     color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    color: #ffffff; /* Vit textfärg */
+    margin:0px;
+    margin-bottom:17px;
+    font-size:38px;
+}
+
+header nav a {
+    color: #fdfcfc; /* Vit textfärg */
+    text-decoration: none;
+    padding: 8px 15px;
+    font-size: 30px;
+    transition: background-color 0.4s;
+}
+
+header nav a:hover {
+    background-color: #007acc; /* Ljusare blå vid hovring */
+    border-radius: 4px;
 }
 
 footer {

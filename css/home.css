@@ -10,7 +10,7 @@ body {
 /* Header styling */
 header {
     background-color: #005f99; /* Mörk blå bakgrund */
-    padding: 35px;
+    padding:1%;
     text-align:center;
     color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -19,8 +19,8 @@ header {
 header h1 {
     color: #ffffff; /* Vit textfärg */
     margin:0px;
-    margin-bottom:15px;
-    font-size: 45px;
+    margin-bottom:17px;
+    font-size:38px;
 }
 
 header nav a {
@@ -149,10 +149,11 @@ button:hover {
 
 /* Footer styling */
 
+
 footer {
     background-color: #005f99;
     text-align: end;
-    padding: 15px;
+    padding: 1px;
     color: #ece9e9;
     margin-top: 20px;
     border-radius: 8px;
