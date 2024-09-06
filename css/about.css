@@ -1,70 +1,15 @@
 /* Allmänna inställningar */
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    color: #ffffff;
+    overflow: hidden;
+    height: 100vh;
+    background: url('../img/vinter.jpg') no-repeat center center fixed; /* Första bilden */
+    background-size: cover;
+    animation: backgroundAnimation 50s infinite;
 }
 
-
-/* Header styling */
-header {
-    background-color: #333;
-    padding: 15px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-}
-
-header h1 {
-    color: white;
-    margin: 0;
-    font-size: 24px;
-}
-
-header nav a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-    font-size: 16px;
-}
-
-header nav a:hover {
-    background-color: #575757;
-    border-radius: 4px;
-}
-
-/* Adjusting the main content to avoid header overlap */
-main {
-    margin-top: 60px;
-}
-
-/* Weather section styles */
-.weather-section {
-    padding: 50px;
-    text-align: center;
-}
-
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.moving-text {
-    font-size: 48px;
-    font-weight: bold;
-}
-
-/* Footer styling */
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #f1f1f1;
-    margin-top: 30px;
-}
 
 /* Main inställningar */
 main {
@@ -80,7 +25,7 @@ main {
 
 /* Container */
 .container {
-    max-width: 30%;
+    max-width: 100%;
     margin: auto;
     margin-top: 5%;
     background-color: rgba(0, 31, 84, 0.7);
