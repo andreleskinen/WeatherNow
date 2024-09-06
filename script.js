@@ -11,6 +11,7 @@ function getWeather(city) {
 
     const accessKey = '95d688d7aff475573fc9c366a0a4f478'; // Your Weatherstack API key
     const url = `https://api.weatherstack.com/current?access_key=${accessKey}&query=${city}`;
+    
 
     fetch(url)
         .then(response => response.json())
