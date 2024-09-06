@@ -17,6 +17,7 @@ body {
     height: auto; /* Behåll bildens proportioner */
     display: block;
     margin: auto; /* Centrerar bilden */
+    
 }
 
 @keyframes backgroundAnimation {
