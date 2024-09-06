@@ -22,18 +22,18 @@ header {
 header h1 {
     color: white;
     margin: 0;
-    font-size: 24px;
+    font-size: 30px;
 }
 
 header nav a {
     color: white;
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 10px 50px;
     font-size: 16px;
 }
 
 header nav a:hover {
-    background-color: #dfdddd;
+    background-color: #c1c2c5;
     border-radius: 4px;
 }
 
@@ -54,8 +54,8 @@ main {
 }
 
 .moving-text {
-    font-size: 48px;
-    font-weight: bold;
+    font-size: 35px;
+    font-weight:bold;
 }
 
 /* Footer styling */
