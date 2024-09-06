@@ -7,36 +7,14 @@ body {
     color: #ffffff;
     overflow: hidden;
     height: 100vh;
-    background: url('../img/vinter.jpg') no-repeat center center fixed; /* Första bilden */
+    background-color: #ffffff;
     background-size:cover ;
-    animation: backgroundAnimation 10s infinite; /* 30s är total längd för animeringen */
+    animation: backgroundAnimation 20s infinite; /* 30s är total längd för animeringen */
 }
 
-.responsive-img {
-    max-width: 100%;
-    height: auto; /* Behåll bildens proportioner */
-    display: block;
-    margin: auto; /* Centrerar bilden */
-    
-}
 
-@keyframes backgroundAnimation {
-    0% {
-        background-image: url('../img/strand.jpg');
-    }
-    25% {
-        background-image: url('../img/vinter1.jpg');
-    }
-    50% {
-        background-image: url('../img/strand.jpg');
-    }
-    75% {
-        background-image: url('../img/vinter.jpg');
-    }
-    100% {
-        background-image: url('../img/vinter.jpg'); /* Återgå till första bilden */
-    }
-}
+
+
 
 main {
     height: 100vh; /* Gör att main täcker hela skärmen */
