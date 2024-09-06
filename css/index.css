@@ -1,118 +1,126 @@
 /* Allmänna inställningar */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f2f4f8;
-    color: #333;
+    background-color: #e6f2ff; /* Ljusblå bakgrundsfärg */
+    color: #010000;
 }
 
 /* Header styling */
 header {
-    background-color: #012b74; /* Mörkblå bakgrundsfärg */
-    padding: 20px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
+    background-color: #005f99; /* Mörk blå bakgrund */
+    padding: 35px;
+    text-align:center;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
     color: #ffffff; /* Vit textfärg */
-    margin: 0;
-    font-size: 30px;
+    margin:0px;
+    margin-bottom:15px;
+    font-size: 45px;
 }
 
 header nav a {
-    color: #ffffff; /* Vit textfärg */
+    color: #fdfcfc; /* Vit textfärg */
     text-decoration: none;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 8px 15px;
+    font-size: 30px;
+    transition: background-color 0.4s;
 }
 
 header nav a:hover {
-    background-color: #0349aa; /* Ljusare blå nyans vid hovring */
+    background-color: #007acc; /* Ljusare blå vid hovring */
     border-radius: 4px;
 }
 
 /* Justerar huvudsektionen för att undvika överlappning med headern */
 main {
-    margin-top: 80px;
+    margin-top: 6px;
     padding: 20px;
 }
 
 /* Weather section styles */
 .weather-section {
-    background-color: #0366d6; /* Mellanblå bakgrundsfärg */
-    padding: 50px 20px;
+    background-color: #cbdeee; /* Mycket ljusblå bakgrund */
+    padding: 30px 20px;
     text-align: center;
     border-radius: 8px;
     margin: 20px 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .moving-text {
-    font-size: 35px;
+    font-size: 30px;
     font-weight: bold;
-    color: #ffffff; /* Vit textfärg */
-    animation: moveText 5s infinite alternate;
+    color: #007acc; /* Stark blå färg */
+    animation: moveText 3s infinite alternate;
 }
 
 @keyframes moveText {
-    0% { color: #ffffff; }
-    100% { color: #00aaff; }
+    0% { color: #007acc; }
+    100% { color: #005f99; }
+}
+
+/* Input field styling */
+input[type="text"] {
+    padding: 10px;
+    width: 80%;
+    max-width: 400px;
+    border: 1px solid #007acc;
+    border-radius: 5px;
+    margin: 10px 0;
 }
 
 /* Loader styling */
 #loader {
-    font-size: 20px;
+    font-size: 18px;
     margin: 20px 0;
-    color: #ffffff;
+    color: #007acc;
 }
 
 /* Button styling */
 button {
     padding: 10px 20px;
-    background-color: #007BFF; /* Ljusblå för knappar */
+    background-color: #007acc; /* Ljusblå för knappar */
     color: #ffffff; /* Vit textfärg */
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin: 10px 0;
+    margin: 10px 5px;
     transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #0056b3; /* Mörkare blå vid hovring */
+    background-color: #005f99; /* Mörkare blå vid hovring */
 }
 
 /* Favorite cities section */
 #favorites {
-    background-color: #0349aa; /* Annan nyans av blått */
-    padding: 30px 20px;
+    background-color: #cbdeee;; /* Ljusblå för favoriter */
+    padding: 20px;
     border-radius: 8px;
     margin: 20px 0;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 #favorites h2 {
-    color: #ffffff;
-    margin-bottom: 20px;
+    color: #007acc;
+    margin-bottom: 15px;
 }
 
 #favorites-list {
     list-style-type: none;
     padding: 0;
-    color: #ffffff;
+    color: #007acc;
 }
 
 #favorites-list li {
     padding: 10px;
-    background-color: #0366d6; /* Kontrasterande blå nyans */
+    background-color: #cbdeee;; /* Ljusblå för listobjekt */
     margin: 5px 0;
     cursor: pointer;
     border-radius: 4px;
@@ -120,29 +128,32 @@ button:hover {
 }
 
 #favorites-list li:hover {
-    background-color: #0056b3; /* Mörkare blå */
+    background-color: #e1e5e9; /* Lite mörkare vid hovring */
 }
 
 /* About section styling */
 #about {
-    background-color: #012b74; /* Djupblå färg */
-    padding: 30px 20px;
+    background-color: #cbdeee;; /* Ljusblå bakgrund */
+    padding: 20px;
     border-radius: 8px;
     margin: 20px 0;
-    color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #333;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 #about h2 {
     margin-bottom: 15px;
+    color: #007acc;
+
 }
 
 /* Footer styling */
+
 footer {
-    background-color: #012b74;
-    text-align: center;
-    padding: 20px;
-    color: #ffffff;
+    background-color: #005f99;
+    text-align: end;
+    padding: 15px;
+    color: #ece9e9;
     margin-top: 20px;
     border-radius: 8px;
 }
@@ -152,12 +163,30 @@ footer {
     .container {
         max-width: 90%;
     }
+
+    input[type="text"] {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 480px) {
     .container {
         max-width: 100%;
     }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    .moving-text {
+        font-size: 24px;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
 }
+
 
 

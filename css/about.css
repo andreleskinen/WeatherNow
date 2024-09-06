@@ -1,74 +1,118 @@
 /* Allmänna inställningar */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    color: #f2f4f8;
-    overflow: hidden;
-    height: 100vh;
-    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    background: #f0f4f8; /* Ljus bakgrund */
+    height: 100%;
+    overflow-x: hidden; /* Förhindra horisontell scroll */
 }
 
-
-/* Header styling */
 header {
-    background-color: rgba(1, 43, 116, 0.7);
-    padding: 3px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-}
-
-
-/* Main inställningar */
-main {
-    padding-top: 10%;
-    color: #000;
-    position: center;
-    line-height: 1.1; /* Minskar avståndet mellan raderna */
-    
+    background-color: #005f99; /* Mörk blå bakgrund */
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 footer {
-    background-color: rgba(3, 43, 97, 0.7);
-    text-align:end;
-    line-height: 0.1;
-    position: fixed;
-   bottom: 0.1%;
-    width: 100%;
-    height: 30px;
-    color: rgb(248, 246, 246);
+    background-color: #005f99;
+    text-align: end;
+    padding: 15px;
+    color: #ece9e9;
+    margin-top: 20px;
+    border-radius: 8px;
 }
+main {
+    padding: 20px;
+    color: #3333;
+    max-width: 900px;
+    margin: 0 auto;
+    background: #ffffff; /* Vit bakgrund för main-innehåll */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #090909; /* Djupblå färg för rubriker */
+}
+
+p {
+    color: #060101; /* Mörkare textfärg för bättre läsbarhet */
+}
+
+a {
+    color: #0288d1; /* Klar blå färg för länkar */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #01579b;
+}
+
+/* Team section styles */
+.team-section {
+    margin-bottom: 50px;
+}
+
+.team-members {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Avstånd mellan team-medlemmar */
+}
+
+.team-member {
+    background-color: #ffffff; /* Vit bakgrund för teammedlemmar */
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+    width: 120px; /* Mindre storlek på teammedlemselement */
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.team-member img {
+    width: 100px; /* Mindre bildstorlek */
+    height: 100px; /* Justera höjd för att matcha bredd */
+    border-radius: 50%;
+    border: 2px solid #0277bd; /* Blå kant runt bilderna */
+}
+
+.team-member h3 {
+    margin-top: 10px;
+    color: #0c92df; /* Blå färg för namn */
+}
+
+.team-member:hover {
+    transform: scale(1.05);
+}
+
 
 /* Responsiv design för mindre skärmar */
 @media screen and (max-width: 768px) {
-    .about-container {
-        max-width: 80%;
+    .team-member {
+        width: 100px;
     }
 
-    .about-container h2 {
-        font-size: 2rem;
-    }
-    main {
-        padding-top: 17%;
-        color: #000;
-        position: center;
+    .team-member img {
+        width: 80px;
+        height: 80px;
     }
 }
 
 @media screen and (max-width: 480px) {
-    .about-container {
-        max-width: 100%;
+    .team-member {
+        width:50px;
     }
 
-    main {
-        padding-top: 40%;
-        line-height: 1.0;
-        color: #000;
-        position: center;
+    .team-member img {
+        width: 60px;
+        height: 60px;
     }
-
 }
+
+
