@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WeatherNow</title>
     <link rel="stylesheet" href="./css/index.css">
-    <link rel="stylesheet" href="./about.html">
 </head>
 <body>
 
@@ -18,29 +17,32 @@
     </header>
 
     <main>
+        <!-- Weather section -->
         <section class="weather-section">
             <div class="container">
                 <h1 class="moving-text">WeatherNow</h1>
                 <input type="text" id="city-input" placeholder="Enter city name">
                 <button id="get-weather-btn">Get Weather</button>
+                <button id="save-favorite-btn">Save as Favorite</button>
+                <div id="loader" style="display: none;">Loading...</div>
                 <div id="weather-result"></div>
             </div>
         </section>
         
-        <section id="home">
-            <!-- Placeholder for home section -->
+        <!-- Favorite cities section -->
+        <section id="favorites">
+            <h2>Your Favorite Cities</h2>
+            <ul id="favorites-list"></ul>
         </section>
-        
+
+        <!-- About section -->
         <section id="about">
             <h2>About WeatherNow</h2>
             <p>WeatherNow is your reliable source for the latest weather updates, helping you stay prepared for any weather conditions.</p>
         </section>
-        
-        <section id="contact">
-            <!-- Placeholder for contact section -->
-        </section>
     </main>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; 2024 WeatherNow. Grupp Röd</p>
     </footer>
@@ -48,3 +50,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+

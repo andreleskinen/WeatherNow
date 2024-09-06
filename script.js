@@ -3,24 +3,44 @@ document.getElementById('get-weather-btn').addEventListener('click', function() 
     getWeather(city);
 });
 
+document.getElementById('save-favorite-btn').addEventListener('click', function() {
+    const city = document.getElementById('city-input').value;
+    if (city) {
+        saveFavoriteCity(city);
+    } else {
+        alert('Please enter a city name to save.');
+    }
+});
+
+document.getElementById('favorites-list').addEventListener('click', function(event) {
+    if (event.target.tagName === 'LI') {
+        const city = event.target.textContent;
+        getWeather(city);
+    }
+});
+
 function getWeather(city) {
     if (!city) {
         alert('Please enter a city name.');
         return;
     }
 
-    const accessKey = '95d688d7aff475573fc9c366a0a4f478'; // Your Weatherstack API key
+    const loader = document.getElementById('loader');
+    loader.style.display = 'block';
+
+    const accessKey = '95d688d7aff475573fc9c366a0a4f478';
     const url = `https://api.weatherstack.com/current?access_key=${accessKey}&query=${city}`;
-    
 
     fetch(url)
         .then(response => response.json())
         .then(data => {
             displayWeather(data, city);
+            loader.style.display = 'none';
         })
         .catch(error => {
             console.error('Error fetching weather data:', error);
             alert('Failed to fetch weather data. Please try again later.');
+            loader.style.display = 'none';
         });
 }
 
@@ -39,3 +59,26 @@ function displayWeather(data, city) {
         weatherResult.innerHTML = `<p>Weather data not found for "${city}". Please check the city name and try again.</p>`;
     }
 }
+
+function saveFavoriteCity(city) {
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    if (!favorites.includes(city)) {
+        favorites.push(city);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+        displayFavorites();
+    }
+}
+
+function displayFavorites() {
+    const favoritesList = document.getElementById('favorites-list');
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    favoritesList.innerHTML = '';
+    favorites.forEach(city => {
+        const li = document.createElement('li');
+        li.textContent = city;
+        favoritesList.appendChild(li);
+    });
+}
+
+// Display favorites on page load
+window.onload = displayFavorites;
