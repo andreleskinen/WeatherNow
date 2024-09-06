@@ -8,7 +8,7 @@ body {
 
 /* Header styling */
 header {
-    background-color:  rgba(0, 31, 84, 0.7);
+    background-color: rgba(1, 43, 116, 0.7);
     padding: 30px;
     position: fixed;
     top: 0;
@@ -18,28 +18,30 @@ header {
     align-items: center;
     z-index: 1000;
 }
-
+/*färg på Wather rubriken */
 header h1 {
-    color: white;
+    color: rgb(247, 243, 243);
     margin: 0;
     font-size: 30px;
 }
-
+/*färg på about*/ 
 header nav a {
-    color: white;
+    color: rgb(248, 248, 251);
     text-decoration: none;
     padding: 10px 50px;
     font-size: 16px;
 }
 
 header nav a:hover {
-    background-color: #c1c2c5;
+    background-color: #e2e3e5;
     border-radius: 4px;
 }
 
 /* Adjusting the main content to avoid header overlap */
 main {
-    margin-top: 60px;
+    margin-top: 50px;
+    height: 100vh;
+    position: relative;
 }
 
 /* Weather section styles */
@@ -58,19 +60,6 @@ main {
     font-weight:bold;
 }
 
-/* Footer styling */
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #f1f1f1;
-    margin-top: 30px;
-}
-
-/* Main inställningar */
-main {
-    height: 100vh;
-    position: relative;
-}
 
 /* Weather section */
 .weather-section {
@@ -83,15 +72,16 @@ main {
     max-width: 30%;
     margin-top: 1%;
     margin-bottom: 10%;
-    background-color: rgba(0, 31, 84, 0.7);
+    background-color: rgba(1, 43, 116, 0.7);
     border-radius:5px;
     padding: 10px;
+    color: white;
 }
 
 /* Footer styling */
 footer {
-    background-color: rgba(6, 9, 13, 0.7);
-    text-align: center;
+    background-color: rgba(3, 43, 97, 0.7);
+    text-align:end;
     padding: 1rem 0;
     position: fixed;
     bottom: 0;
