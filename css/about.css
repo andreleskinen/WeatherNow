@@ -51,6 +51,8 @@ main {
     color: #3333;
     max-width: 900px;
     margin: 0 auto;
+    margin-top: 6px;
+    
     background: #ffffff; /* Vit bakgrund för main-innehåll */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -129,20 +131,18 @@ a:hover {
 }
 
 @media screen and (max-width: 480px) {
-    header h1 {
-        font-size: 18px; /* Ändra storleken för mindre skärmar */
-    }
-
-    header nav a {
-        font-size: 16px; /* Justera textstorleken för mindre skärmar */
-    }
-
 
     .team-member img {
         max-width: 60px; /* Mindre storlek för små skärmar */
     }
     .container {
         max-width: 100%;
+    
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 14px;
     }
 }
 
