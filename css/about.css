@@ -127,48 +127,33 @@ a:hover {
 
 /* Responsiv design för mindre skärmar */
 @media screen and (max-width: 768px) {
-    .team-member {
-        width: 100px;
-    }
-    .team-member img {
-        max-width: 80px; /* Justera storleken på mindre skärmar */
-    }
-    header h1 {
-        font-size: 24px;
-    }
-    
-    header nav a {
-        font-size: 18px; /* Adjust font size for small screens */
-        padding: 10px; /* Adjust padding for small screens */
+    .container {
+        max-width: 90%;
     }
 
+    input[type="text"] {
+        width: 100%;
+    }
+    button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
 }
 
 @media screen and (max-width: 480px) {
-
-    .team-member img {
-        max-width: 60px; /* Mindre storlek för små skärmar */
-    }
     .container {
         max-width: 100%;
-    
+    }
+
+    .moving-text {
+        font-size: 24px;
     }
 
     button {
         padding: 8px 16px;
         font-size: 14px;
     }
-    header h1 {
-        font-size: 24px;
-    }
-    
-    header nav a {
-        font-size: 18px; /* Adjust font size for small screens */
-        padding: 10px; /* Adjust padding for small screens */
-    }
 }
-
-
 
 
 
