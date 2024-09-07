@@ -7,33 +7,41 @@ body {
     height: 100%;
     overflow-x: hidden; /* Förhindra horisontell scroll */
 }
+
 header {
-    background-color: #005f99; /* Mörk blå bakgrund */
-    padding:1%;
-    text-align:center;
+    background-color: #005f99;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between; /* Ändra layouten för att göra plats för knappen */
+    align-items: center;
     color: #fff;
+    font-size:60px ;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
-    color: #ffffff; /* Vit textfärg */
-    margin:0px;
-    margin-bottom:17px;
-    font-size:38px;
+    color: #ffffff;
+    margin: 0;
+    font-size: 24px; /* Minska storleken på rubriken för att få plats med knappen */
+}
+
+header nav {
+    flex-shrink: 0; /* Förhindra att nav kollapsar */
 }
 
 header nav a {
-    color: #fdfcfc; /* Vit textfärg */
+    color: #fdfcfc;
     text-decoration: none;
     padding: 8px 15px;
-    font-size: 30px;
+    font-size: 18px; /* Justera textstorleken för bättre synlighet */
     transition: background-color 0.4s;
 }
 
 header nav a:hover {
-    background-color: #007acc; /* Ljusare blå vid hovring */
+    background-color: #007acc;
     border-radius: 4px;
 }
+
 footer {
     background-color: #005f99;
     text-align: end;
@@ -93,11 +101,13 @@ a:hover {
     transition: transform 0.3s ease;
 }
 
+
 .team-member img {
-    width: 100px; /* Mindre bildstorlek */
-    height: 100px; /* Justera höjd för att matcha bredd */
+    width: 100%;
+    max-width: 100px; /* Se till att bilderna inte blir för stora */
+    height: auto; /* Behåll proportionerna */
     border-radius: 50%;
-    border: 2px solid #0277bd; /* Blå kant runt bilderna */
+    border: 2px solid #0277bd;
 }
 
 .team-member h3 {
@@ -109,21 +119,6 @@ a:hover {
     transform: scale(1.05);
 }
 
-#home {
-    background-color: #cbdeee;; /* Ljusblå bakgrund */
-    padding: 20px;
-    border-radius: 8px;
-    margin: 20px 0;
-    color: #333;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-#home h2 {
-    margin-bottom: 15px;
-    color: #007acc;
-
-}
-
 
 
 /* Responsiv design för mindre skärmar */
@@ -131,38 +126,31 @@ a:hover {
     .team-member {
         width: 100px;
     }
-
     .team-member img {
-        width: 80px;
-        height: 80px;
+        max-width: 80px; /* Justera storleken på mindre skärmar */
     }
+
 }
 
 @media screen and (max-width: 480px) {
-    .team-member {
-        width:50px;
+    header h1 {
+        font-size: 18px; /* Ändra storleken för mindre skärmar */
     }
 
+    header nav a {
+        font-size: 16px; /* Justera textstorleken för mindre skärmar */
+    }
+
+
     .team-member img {
-        width: 60px;
-        height: 60px;
+        max-width: 60px; /* Mindre storlek för små skärmar */
     }
     .container {
         max-width: 100%;
     }
-
-    header h1 {
-        font-size: 24px;
-    }
-
-    .moving-text {
-        font-size: 24px;
-    }
-
-    button {
-        padding: 8px 16px;
-        font-size: 14px;
-    }
 }
+
+
+
 
 
