@@ -237,17 +237,15 @@ footer {
 
 @media screen and (max-width: 480px) {
     .container {
-       padding: auto;
+        max-width: 50%;
     }
 
     .moving-text {
         font-size: 24px;
     }
 
-
     button {
         padding: 8px 16px;
         font-size: 10px;
-       
     }
 }
