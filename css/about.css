@@ -1,11 +1,14 @@
+/* Allmänna inställningar */
 body {
     margin: 0;
-    font-family: 'Roboto', Sans-serif Italic;
+    font-family:'Roboto', Sans-serif Italic;
     color: #333;
-    background: #f0f4f8;
+    background: #f0f4f8; /* Ljus bakgrund */
     height: 100%;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Förhindra horisontell scroll */
 }
+
+
 
 header {
     background: linear-gradient(135deg, #005f99, #007acc);
@@ -18,8 +21,12 @@ header {
 }
 
 @keyframes backgroundAnimation {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
 }
 
 header h1 {
@@ -34,8 +41,14 @@ header h1 {
 }
 
 @keyframes fadeInText {
-    0% { opacity: 0; transform: translateY(-20px); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 header nav a {
@@ -88,10 +101,80 @@ header nav a:hover {
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
+
+
+main {
+    padding: 20px;
+    color: #3333;
+    max-width: 900px;
+    margin: 0 auto;
+    margin-top: 6px;
+    
+    background: #ffffff; /* Vit bakgrund för main-innehåll */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #090909; /* Djupblå färg för rubriker */
+}
+
+p {
+    color: #060101; /* Mörkare textfärg för bättre läsbarhet */
+}
+
+
+
+.team-section {
+    margin-bottom: 50px;
+}
+
+.team-members {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; 
+}
+
+.team-member {
+    background-color: #ffffff; /* Vit bakgrund för teammedlemmar */
+    padding: 3px;
+    margin: 10px;
+    border-radius: 10px;
+    width: 120px; 
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+
+.team-member img {
+    width: 100%;
+    max-width: 100px; 
+    height: auto; 
+    border-radius:60%;
+    border: 2px solid #0277bd;
+}
+
+.team-member h3 {
+    margin-top: 10px;
+    color: #0c92df; /* Blå färg för namn */
+}
+
+.team-member:hover {
+    transform: scale(1.05);
+}
+
 
 footer {
     background-color: #005f99;
@@ -102,83 +185,17 @@ footer {
     border-radius: 8px;
 }
 
-main {
-    padding: 20px;
-    color: #3333;
-    max-width: 900px;
-    margin: 0 auto;
-    margin-top: 6px;
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
 
-h2 {
-    color: #090909;
-}
 
-p {
-    color: #060101;
-}
-
-a {
-    color: #0288d1;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: #01579b;
-}
-
-.team-section {
-    margin-bottom: 50px;
-}
-
-.team-members {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.team-member {
-    background-color: #ffffff;
-    padding: 3px;
-    margin: 10px;
-    border-radius: 10px;
-    width: 120px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.team-member img {
-    width: 100%;
-    max-width: 100px;
-    height: auto;
-    border-radius: 60%;
-    border: 2px solid #0277bd;
-}
-
-.team-member h3 {
-    margin-top: 10px;
-    color: #0c92df;
-}
-
-.team-member:hover {
-    transform: scale(1.05);
-}
-
+/* Responsiv design för mindre skärmar */
 @media screen and (max-width: 768px) {
     .container {
         max-width: 90%;
     }
-
+    
     input[type="text"] {
         width: 100%;
     }
-
     button {
         padding: 8px 16px;
         font-size: 14px;
@@ -187,7 +204,8 @@ a:hover {
 
 @media screen and (max-width: 480px) {
     .container {
-        max-width: 100%;
+      position:center;
+        
     }
 
     .moving-text {
@@ -197,5 +215,9 @@ a:hover {
     button {
         padding: 8px 16px;
         font-size: 14px;
+        position:center;
     }
 }
+
+
+
