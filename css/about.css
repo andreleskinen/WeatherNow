@@ -1,14 +1,10 @@
-/* Allmänna inställningar */
 body {
+    font-family: 'Roboto', Sans-serif Italic;
     margin: 0;
-    font-family:'Roboto', Sans-serif Italic;
-    color: #333;
-    background: #f0f4f8; /* Ljus bakgrund */
-    height: 100%;
-    overflow-x: hidden; /* Förhindra horisontell scroll */
+    padding: 0;
+    background-color: #e6f2ff;
+    color: #010000;
 }
-
-
 
 header {
     background: linear-gradient(135deg, #005f99, #007acc);
