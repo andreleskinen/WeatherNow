@@ -65,7 +65,7 @@ header nav a::before {
     bottom: 0;
     left: 0;
     background-color: #fdfcfc;
-    visibility: hidden;
+    visibility:visible;
     transform: scaleX(0);
     transition: all 0.3s ease-in-out;
 }
@@ -112,11 +112,8 @@ header nav a:hover {
 main {
     padding: 20px;
     color: #3333;
-    max-width: 900px;
-    margin: 0 auto;
-    margin-top: 6px;
-    
-    background: #ffffff; /* Vit bakgrund för main-innehåll */
+    margin-top: 6px; 
+    background: #f4f6f8; /* Vit bakgrund för main-innehåll */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -132,7 +129,7 @@ p {
 
 
 .team-section {
-    margin-bottom: 50px;
+    margin-bottom: 5px;
 }
 
 .team-members {
@@ -143,11 +140,11 @@ p {
 }
 
 .team-member {
-    background-color: #ffffff; /* Vit bakgrund för teammedlemmar */
+    background-color: #fdf9f9; /* Vit bakgrund för teammedlemmar */
     padding: 3px;
     margin: 10px;
     border-radius: 10px;
-    width: 120px; 
+    width: 110px; 
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
@@ -158,17 +155,17 @@ p {
     width: 100%;
     max-width: 100px; 
     height: auto; 
-    border-radius:60%;
+    border-radius:0%;
     border: 2px solid #0277bd;
 }
 
 .team-member h3 {
-    margin-top: 10px;
-    color: #0c92df; /* Blå färg för namn */
+    margin-top: 3px;
+    color: #1149a9; /* Blå färg för namn */
 }
 
 .team-member:hover {
-    transform: scale(1.05);
+    transform: scale(1.50);
 }
 
 
@@ -193,14 +190,14 @@ footer {
     }
 
     button {
-        padding: 8px 16px;
+        padding: 7px 17px;
         font-size: 14px;
     }
 }
 
 @media screen and (max-width: 480px) {
     .container {
-        max-width: 100%;
+        max-width: 90%;
     }
 
     .moving-text {
@@ -211,11 +208,7 @@ footer {
         padding: 8px 16px;
         font-size: 14px;
     }
-    .home-button {
-        display: block; /* Se till att den inte är dold */
-        padding: 8px 16px;
-        font-size: 14px;
-    }
+   
 }
 
 
