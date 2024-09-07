@@ -65,7 +65,7 @@ header nav a::before {
     bottom: 0;
     left: 0;
     background-color: #fdfcfc;
-    visibility: hidden;
+    visibility: visible;
     transform: scaleX(0);
     transition: all 0.3s ease-in-out;
 }
@@ -135,12 +135,11 @@ main {
 }
 
 input[type="text"] {
+    width: 50%; /* Standard bredd */
+    max-width: 400px; /* Maximal bredd */
     padding: 10px;
-    width: 80%;
-    max-width: 400px;
     border: 1px solid #007acc;
     border-radius: 5px;
-    margin: 10px 0;
 }
 
 #loader {
@@ -237,8 +236,10 @@ footer {
 
 @media screen and (max-width: 480px) {
     .container {
-        max-width: 50%;
+        max-width: 90%;
+        
     }
+
 
     .moving-text {
         font-size: 24px;

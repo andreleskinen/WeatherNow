@@ -215,6 +215,11 @@ footer {
         padding: 8px 16px;
         font-size: 14px;
     }
+    .home-button {
+        display: block; /* Se till att den inte är dold */
+        padding: 8px 16px;
+        font-size: 14px;
+    }
 }
 
 
