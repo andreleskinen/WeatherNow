@@ -7,38 +7,33 @@ body {
     color: #010000;
 }
 
+
+/* Header styling */
 header {
-    background-color: #005f99;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between; /* Ändra layouten för att göra plats för knappen */
-    align-items: center;
+    background-color: #005f99; /* Mörk blå bakgrund */
+    padding:1%;
+    text-align:center;
     color: #fff;
-    font-size: 60px;
-    
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
-    color: #ffffff;
-    margin: 0;
-    font-size: 24px; /* Minska storleken på rubriken för att få plats med knappen */
-}
-
-header nav {
-    flex-shrink: 0; /* Förhindra att nav kollapsar */
+    color: #ffffff; /* Vit textfärg */
+    margin:0px;
+    margin-bottom:17px;
+    font-size:38px;
 }
 
 header nav a {
-    color: #fdfcfc;
+    color: #fdfcfc; /* Vit textfärg */
     text-decoration: none;
     padding: 8px 15px;
-    font-size: 18px; /* Justera textstorleken för bättre synlighet */
+    font-size: 30px;
     transition: background-color 0.4s;
 }
 
 header nav a:hover {
-    background-color: #007acc;
+    background-color: #007acc; /* Ljusare blå vid hovring */
     border-radius: 4px;
 }
 /* Justerar huvudsektionen för att undvika överlappning med headern */
