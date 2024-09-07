@@ -1,14 +1,13 @@
 /* Allmänna inställningar */
 body {
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family:'Roboto', Sans-serif Italic;
     color: #333;
     background: #f0f4f8; /* Ljus bakgrund */
     height: 100%;
     overflow-x: hidden; /* Förhindra horisontell scroll */
 }
 
-/* Header styling */
 header {
     background-color: #005f99; /* Mörk blå bakgrund */
     padding:1%;
