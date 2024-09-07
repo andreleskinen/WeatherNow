@@ -109,6 +109,22 @@ a:hover {
     transform: scale(1.05);
 }
 
+#home {
+    background-color: #cbdeee;; /* Ljusblå bakgrund */
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    color: #333;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#home h2 {
+    margin-bottom: 15px;
+    color: #007acc;
+
+}
+
+
 
 /* Responsiv design för mindre skärmar */
 @media screen and (max-width: 768px) {
