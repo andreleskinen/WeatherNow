@@ -7,7 +7,6 @@ body {
     height: 100%;
     overflow-x: hidden; /* Förhindra horisontell scroll */
 }
-
 header {
     background-color: #005f99; /* Mörk blå bakgrund */
     padding:1%;
@@ -35,7 +34,6 @@ header nav a:hover {
     background-color: #007acc; /* Ljusare blå vid hovring */
     border-radius: 4px;
 }
-
 footer {
     background-color: #005f99;
     text-align: end;
