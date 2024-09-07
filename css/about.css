@@ -8,6 +8,11 @@ body {
     overflow-x: hidden; /* Förhindra horisontell scroll */
 }
 
+header nav {
+    display: flex;
+    justify-content: center; /* Center elements horizontally */
+    flex-wrap: wrap; /* Wrap items to new line if necessary */
+}
 
 /* Header styling */
 header {
@@ -21,11 +26,12 @@ header {
 header h1 {
     color: #ffffff; /* Vit textfärg */
     margin:0px;
-    margin-bottom:17px;
+    margin-bottom:1px;
     font-size:38px;
 }
 
 header nav a {
+    display: block; /* Ensure links are displayed as block elements */
     color: #fdfcfc; /* Vit textfärg */
     text-decoration: none;
     padding: 8px 15px;
@@ -127,6 +133,14 @@ a:hover {
     .team-member img {
         max-width: 80px; /* Justera storleken på mindre skärmar */
     }
+    header h1 {
+        font-size: 24px;
+    }
+    
+    header nav a {
+        font-size: 18px; /* Adjust font size for small screens */
+        padding: 10px; /* Adjust padding for small screens */
+    }
 
 }
 
@@ -143,6 +157,14 @@ a:hover {
     button {
         padding: 8px 16px;
         font-size: 14px;
+    }
+    header h1 {
+        font-size: 24px;
+    }
+    
+    header nav a {
+        font-size: 18px; /* Adjust font size for small screens */
+        padding: 10px; /* Adjust padding for small screens */
     }
 }
 
