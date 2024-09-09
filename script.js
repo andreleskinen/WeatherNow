@@ -9,6 +9,19 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Please enter a city name.');
         }
     });
+
+    // Event listener for the 'Save as Favorite' button
+    document.getElementById('save-favorite-btn').addEventListener('click', function() {
+        const city = document.getElementById('city-input').value.trim();
+        if (city) {
+            saveFavoriteCity(city);
+        } else {
+            alert('Please enter a city name to save.');
+        }
+    });
+
+    // Display saved favorites when the page loads
+    displayFavorites();
 });
 
 // Function to get coordinates from OpenWeatherMap API and then fetch weather data
@@ -115,4 +128,28 @@ function displayWeather(dailyTemps) {
     });
 
     weatherResult.innerHTML = weatherHTML;  // Set all the content at once
+}
+
+// Function to save a city as a favorite
+function saveFavoriteCity(city) {
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    if (!favorites.includes(city)) {
+        favorites.push(city);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+        displayFavorites();
+    } else {
+        alert(`${city} is already in your favorite list.`);
+    }
+}
+
+// Function to display favorite cities
+function displayFavorites() {
+    const favoritesList = document.getElementById('favorites-list');
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    favoritesList.innerHTML = '';
+    favorites.forEach(city => {
+        const li = document.createElement('li');
+        li.textContent = city;
+        favoritesList.appendChild(li);
+    });
 }
