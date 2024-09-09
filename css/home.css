@@ -1,272 +1,160 @@
+/* Home page styling */
 body {
-    font-family: 'Roboto', Sans-serif Italic;
+    font-family: 'Lato', sans-serif; /* Use a modern, clean font */
     margin: 0;
     padding: 0;
-    background-color: #e6f2ff;
-    color: #010000;
+    background-color: #ecf0f1; /* Light background for contrast */
+    overflow-x: hidden;
+    color: #2c3e50; /* Text color */
 }
 
 header {
-    background: linear-gradient(135deg, #005f99, #007acc);
-    padding: 2%;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 15px 0;
     text-align: center;
-    color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    animation: backgroundAnimation 10s infinite alternate;
-    background-size: 400% 400%;
-}
-
-@keyframes backgroundAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-    100% {
-        background-position: 100% 50%;
-    }
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
-    font-size: 48px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    margin-bottom: 10px;
-    opacity: 0;
-    animation: fadeInText 3s forwards;
+    margin: 0;
+    font-size: 2em;
 }
 
-@keyframes fadeInText {
-    0% {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-header nav a {
-    color: #fdfcfc;
+nav a {
+    color: #ecf0f1;
+    margin: 0 20px;
     text-decoration: none;
-    padding: 8px 15px;
-    font-size: 20px;
     font-weight: bold;
-    position: relative;
-    transition: color 0.4s;
 }
 
-header nav a::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    bottom: 0;
-    left: 0;
-    background-color: #fdfcfc;
-    visibility: visible;
-    transform: scaleX(0);
-    transition: all 0.3s ease-in-out;
-}
-
-header nav a:hover::before {
-    visibility: visible;
-    transform: scaleX(1);
-}
-
-header nav a:hover {
-    color: #fff;
-    transform: scale(1.1);
-}
-
-.cta {
-    background-color: #007acc;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 18px;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    animation: pulse 2s infinite;
-}
-
-.cta:hover {
-    background-color: #005f99;
-    transform: scale(1.1);
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-main {
-    margin-top: 6px;
-    padding: 20px;
-}
-
-.weather-section {
-    background-color: #cbdeee;
-    padding: 30px 20px;
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
     text-align: center;
-    border-radius: 8px;
-    margin: 20px 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.moving-text {
-    font-size: 30px;
-    font-weight: bold;
-    color: #007acc;
-    animation: moveText 3s infinite alternate;
-}
-
-@keyframes moveText {
-    0% { color: #007acc; }
-    100% { color: #005f99; }
 }
 
 input[type="text"] {
-    width: 50%; /* Standard bredd */
-    max-width: 400px; /* Maximal bredd */
     padding: 10px;
-    border: 1px solid #007acc;
-    border-radius: 5px;
-}
-
-#loader {
-    font-size: 18px;
-    margin: 20px 0;
-    color: #007acc;
+    width: 60%;
+    border: 1px solid #bdc3c7;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #2c3e50;
 }
 
 button {
-    padding: 10px 20px;
-    background-color: #007acc;
-    color: #ffffff;
+    padding: 10px 25px;
+    background-color: #e74c3c;
+    color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
-    margin: 10px 5px;
-    transition: background-color 0.3s;
+    font-size: 16px;
+    margin: 0 5px;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #005f99;
+    background-color: #c0392b; /* Darker hover effect */
 }
 
+#weather-result {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 20px 0;
+}
 
+#weather-result::-webkit-scrollbar {
+    display: none; /* Hide scrollbar */
+}
 
-#about {
-    background-color: #cbdeee;
+.weather-card {
+    background-color: white;
+    border: 1px solid #bdc3c7;
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    width: 180px;
+    height: 280px;
+    margin: 0 15px;
     padding: 20px;
-    border-radius: 8px;
-    margin: 20px 0;
-    color: #0a0a0a;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
 }
 
-#about h2 {
-    margin-bottom: 15px;
-    color: #007acc;
+.weather-card:hover {
+    transform: translateY(-10px); /* Add hover effect to lift the card */
 }
 
-
-h2 {
-    color: #007acc; /* Justera denna färg för att ändra rubrikens färg */
-    margin-bottom: 15px;
+.weather-card p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #2c3e50;
 }
-/* Justeringar för favoritlistan */
+
+.weather-card .date {
+    font-weight: bold;
+    font-size: 18px;
+    color: #e74c3c;
+    margin-bottom: 10px;
+}
+
+.moving-text {
+    animation: movingText 3s infinite;
+}
+
+@keyframes movingText {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+#favorites {
+    margin-top: 40px;
+    text-align: center;
+}
+
 #favorites-list {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
-    margin: 0;
-    color: #022c48;
 }
 
 #favorites-list li {
-   
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color:  #cbdeee; /* Ljus bakgrund för listobjekten */
-    padding: 1px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(27, 52, 240, 0.1);
-}
-
-/* Stilar för "Ta bort"-knappen */
-.remove-favorite {
-    background-color: #005f99;
-    color: white;
-    border: none;
+    background-color: white;
+    margin: 10px;
+    padding: 10px;
     border-radius: 4px;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.remove-favorite:hover {
-    background-color:  #5689b4;
-    transform: scale(1.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #2c3e50;
 }
 
 footer {
-    background-color: #005f99;
-    text-align: end;
-    padding: 1px;
-    color: #ece9e9;
-    margin-top: 20px;
-    border-radius: 8px;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 30px;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
 }
 
-@media screen and (max-width: 768px) {
-    .container {
-        max-width: 90%;
-    }
-
-    input[type="text"] {
-        width: 100%;
-    }
-    button {
-        padding: 7px 17px;
-        font-size: 14px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .container {
-        max-width: 90%;
-        
-    }
-
-
-    .moving-text {
-        font-size: 24px;
-    }
-
-    button {
-        padding: 8px 16px;
-        font-size: 10px;
-    }
-
-    #favorites-list li {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .remove-favorite {
-        margin-top: 5px;
-        align-self: flex-end;
-    }
+/* Loader */
+#loader {
+    font-size: 18px;
+    color: #e74c3c;
+    margin-top: 10px;
 }
