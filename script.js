@@ -1,7 +1,51 @@
+
+function displayFavorites() {
+    const favoritesList = document.getElementById('favorites-list');
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    favoritesList.innerHTML = '';
+
+    favorites.forEach(city => {
+        const li = document.createElement('li');
+        li.textContent = city;
+
+        const removeButton = document.createElement('button');
+        removeButton.textContent = 'Remove';
+        removeButton.classList.add('remove-favorite');
+        li.appendChild(removeButton);
+
+        favoritesList.appendChild(li);
+
+        
+        removeButton.addEventListener('click', function() {
+            removeFavoriteCity(city);
+        });
+    });
+}
+
+
+function removeFavoriteCity(city) {
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    favorites = favorites.filter(favCity => favCity !== city);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    displayFavorites(); 
+}
+
+
+function saveFavoriteCity(city) {
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    if (!favorites.includes(city)) {
+        favorites.push(city);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+        displayFavorites();
+    }
+}
+
+
 document.getElementById('get-weather-btn').addEventListener('click', function() {
     const city = document.getElementById('city-input').value;
     getWeather(city);
 });
+
 
 document.getElementById('save-favorite-btn').addEventListener('click', function() {
     const city = document.getElementById('city-input').value;
@@ -11,6 +55,7 @@ document.getElementById('save-favorite-btn').addEventListener('click', function(
         alert('Please enter a city name to save.');
     }
 });
+
 
 document.getElementById('favorites-list').addEventListener('click', function(event) {
     if (event.target.tagName === 'LI') {
@@ -44,6 +89,7 @@ function getWeather(city) {
         });
 }
 
+
 function displayWeather(data, city) {
     const weatherResult = document.getElementById('weather-result');
 
@@ -60,25 +106,4 @@ function displayWeather(data, city) {
     }
 }
 
-function saveFavoriteCity(city) {
-    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    if (!favorites.includes(city)) {
-        favorites.push(city);
-        localStorage.setItem('favorites', JSON.stringify(favorites));
-        displayFavorites();
-    }
-}
-
-function displayFavorites() {
-    const favoritesList = document.getElementById('favorites-list');
-    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    favoritesList.innerHTML = '';
-    favorites.forEach(city => {
-        const li = document.createElement('li');
-        li.textContent = city;
-        favoritesList.appendChild(li);
-    });
-}
-
-// Display favorites on page load
 window.onload = displayFavorites;

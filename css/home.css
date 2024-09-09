@@ -163,39 +163,7 @@ button:hover {
     background-color: #005f99;
 }
 
-#favorites {
-    background-color: #cbdeee;
-    padding: 20px;
-    border-radius: 8px;
-    margin: 20px 0;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
 
-#favorites h2 {
-    color: #007acc;
-    margin-bottom: 15px;
-}
-
-#favorites-list {
-    list-style-type: none;
-    padding: 0;
-    color: #007acc;
-}
-
-#favorites-list li {
-    padding: 10px;
-    background-color: #cbdeee;
-    margin: 5px 0;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-}
-
-#favorites-list li:hover {
-    background-color: #e1e5e9;
-    padding: 10px;
-}
 
 #about {
     background-color: #cbdeee;
@@ -209,6 +177,48 @@ button:hover {
 #about h2 {
     margin-bottom: 15px;
     color: #007acc;
+}
+
+
+h2 {
+    color: #007acc; /* Justera denna färg för att ändra rubrikens färg */
+    margin-bottom: 15px;
+}
+/* Justeringar för favoritlistan */
+#favorites-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    color: #022c48;
+}
+
+#favorites-list li {
+   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:  #cbdeee; /* Ljus bakgrund för listobjekten */
+    padding: 1px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(27, 52, 240, 0.1);
+}
+
+/* Stilar för "Ta bort"-knappen */
+.remove-favorite {
+    background-color: #005f99;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.remove-favorite:hover {
+    background-color:  #5689b4;
+    transform: scale(1.1);
 }
 
 footer {
@@ -248,5 +258,15 @@ footer {
     button {
         padding: 8px 16px;
         font-size: 10px;
+    }
+
+    #favorites-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .remove-favorite {
+        margin-top: 5px;
+        align-self: flex-end;
     }
 }
