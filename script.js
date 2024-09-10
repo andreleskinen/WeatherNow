@@ -1,4 +1,32 @@
+ // Icon mapping for Visual Crossing weather API to your 4th Set - Color icons
+ const iconMapping = {
+    'clear-day': 'clear-day.svg',
+    'clear-night': 'clear-night.svg',
+    'cloudy': 'cloudy.svg',
+    'fog': 'fog.svg',
+    'hail': 'hail.svg',
+    'partly-cloudy-day': 'partly-cloudy-day.svg',
+    'partly-cloudy-night': 'partly-cloudy-night.svg',
+    'rain-snow-showers-day': 'rain-snow-showers-day.svg',
+    'rain-snow-showers-night': 'rain-snow-showers-night.svg',
+    'rain-snow': 'rain-snow.svg',
+    'rain': 'rain.svg',
+    'showers-day': 'showers-day.svg',
+    'showers-night': 'showers-night.svg',
+    'sleet': 'sleet.svg',
+    'snow-showers-day': 'snow-showers-day.svg',
+    'snow-showers-night': 'snow-showers-night.svg',
+    'snow': 'snow.svg',
+    'thunder-rain': 'thunder-rain.svg',
+    'thunder-showers-day': 'thunder-showers-day.svg',
+    'thunder-showers-night': 'thunder-showers-night.svg',
+    'thunder': 'thunder.svg',
+    'wind': 'wind.svg'
+};
+
 document.addEventListener('DOMContentLoaded', function() {
+    
+
     // Event listener for the 'Get Weather' button
     document.getElementById('get-weather-btn').addEventListener('click', function() {
         const city = document.getElementById('city-input').value.trim();
@@ -58,7 +86,7 @@ function getCoordinatesAndWeather(city) {
 // Function to fetch weather data
 function getWeather(lat, lon, cityName) {
     const apiKey = 'FJKMR7YWYPQ3NJTAXW6HTPF7P';  // Replace with your Visual Crossing API key
-    const weatherApiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${lat},${lon}?unitGroup=metric&key=${apiKey}&include=days&elements=datetime,tempmax,tempmin,conditions&forecastDays=5`;
+    const weatherApiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${lat},${lon}?unitGroup=metric&key=${apiKey}&include=days&elements=datetime,tempmax,tempmin,conditions,icon&forecastDays=5`;
 
     fetch(weatherApiUrl)
         .then(response => response.json())
@@ -66,7 +94,8 @@ function getWeather(lat, lon, cityName) {
             const dailyTemps = data.days.slice(0, 5).map(day => ({
                 date: day.datetime,
                 maxTemp: day.tempmax,
-                minTemp: day.tempmin
+                minTemp: day.tempmin,
+                icon: day.icon  // Get the icon from the API response
             }));
             displayWeather(dailyTemps, cityName);
         })
@@ -76,7 +105,6 @@ function getWeather(lat, lon, cityName) {
         });
 }
 
-// Function to display weather data
 function displayWeather(dailyTemps, cityName) {
     const currentWeather = document.getElementById('current-weather');
     const weatherResult = document.getElementById('weather-result');
@@ -90,19 +118,36 @@ function displayWeather(dailyTemps, cityName) {
     }
 
     const today = dailyTemps[0];
-    const dayName = new Date(today.date).toLocaleDateString('sv-SE', { weekday: 'long' });
-    const dateString = new Date(today.date).toLocaleDateString('sv-SE', { year: 'numeric', month: 'long', day: 'numeric' });
+
+    // Get the current date
+    const currentDate = new Date();
+    const todayDate = new Date(today.date);
+
+    // Check if the weather date is the current date, if so, display "idag"
+    const isToday = (currentDate.toDateString() === todayDate.toDateString());
+    const dayName = isToday ? "idag" : todayDate.toLocaleDateString('sv-SE', { weekday: 'long' });
+
+    // Get the day number and shortened month name (e.g., "10 sep")
+    const dayNumber = todayDate.getDate();  // Get the day number (e.g., "10")
+    const monthShort = todayDate.toLocaleDateString('sv-SE', { month: 'short' });  // Get the shortened month (e.g., "sep")
+    const dateString = `${dayNumber} ${monthShort}`;
+
+    // Get the icon from the API response and map it to your local icon
+    const iconFileName = iconMapping[today.icon] || 'default-icon.svg';  // Use default if not found
 
     let currentWeatherHTML = `
     <div class="forecast today">
         <div class="forecast-header">
-            <div class="day">${dayName}</div>
-            <div class="date">${dateString}</div>
+            <div class="day-date">
+                <div class="day">${dayName}</div>
+                <div class="date">${dateString}</div>
+            </div>
         </div>
         <div class="forecast-content">
             <div class="location">${cityName}</div>
             <div class="degree">
-                <div class="num">${Math.round(today.maxTemp)}<sup>°</sup></div>   
+                <div class="num">${Math.round(today.maxTemp)}<sup>°</sup></div>
+                <div class="icon"><img src="assets/icons/${iconFileName}" alt="Weather Icon" class="weather-icon"></div>   
             </div>
         </div>
     </div>
@@ -112,16 +157,25 @@ function displayWeather(dailyTemps, cityName) {
 
     let weatherHTML = '';
     dailyTemps.slice(1).forEach(day => {
-        const dayName = new Date(day.date).toLocaleDateString('sv-SE', { weekday: 'long' });
+        const dayDate = new Date(day.date);
+        const dayName = dayDate.toLocaleDateString('sv-SE', { weekday: 'long' });
+        const dayNumber = dayDate.getDate();
+        const monthShort = dayDate.toLocaleDateString('sv-SE', { month: 'short' });
+        const dateString = `${dayNumber} ${monthShort}`;
+        const iconFileName = iconMapping[day.icon] || 'default-icon.svg';  // Map the icon for each day
 
         weatherHTML += `
             <div class="forecast">
                 <div class="forecast-header">
-                    <div class="day">${dayName}</div>
+                    <div class="day-date">
+                        <div class="day">${dayName}</div>
+                        <div class="date">${dateString}</div>
+                    </div>
                 </div>
                 <div class="forecast-content">
                     <div class="degree">${Math.round(day.maxTemp)}<sup>°</sup></div>
                     <small>${Math.round(day.minTemp)}°</small>
+                    <div class="icon"><img src="assets/icons/${iconFileName}" alt="Weather Icon" class="weather-icon"></div>
                 </div>
             </div>
         `;
@@ -129,6 +183,7 @@ function displayWeather(dailyTemps, cityName) {
 
     weatherResult.innerHTML = weatherHTML;
 }
+
 
 // Function to display favorite cities
 function displayFavorites() {

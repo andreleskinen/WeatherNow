@@ -1,3 +1,10 @@
+/* icon sizing */
+.weather-icon {
+    width: 50%;  /* 35% of the parent container's width */
+    height: auto;  /* Maintain the aspect ratio */
+    max-width: 100px;  /* Set a max size */
+}
+
 /* Global Styles */
 body {
     font-family: Arial, sans-serif;
@@ -5,8 +12,10 @@ body {
     padding: 0;
     background-color: #f2f2f2;
     color: #333;
+    background-image: linear-gradient(to bottom, #ffffff 50%, #e0e0e0 100%);  /* Gradient for room effect */
 }
 
+/* Container */
 .container {
     width: 90%;
     max-width: 1200px;
@@ -24,14 +33,14 @@ body {
     color: white;
     font-size: 36px;
     margin: 0;
-    text-decoration: none; /* Remove purple line (underline) from text */
+    text-decoration: none; /* Remove underline */
 }
 
 .site-description {
     color: white;
     font-size: 16px;
     margin: 0;
-    text-decoration: none; /* Remove underline from the sub-description */
+    text-decoration: none; /* Remove underline */
 }
 
 /* Hero Section */
@@ -54,11 +63,11 @@ body {
     max-width: 100%;
     border: 1px solid #ddd;
     border-radius: 5px;
-    box-shadow: none; /* Remove any box shadow to avoid the white line */
+    box-shadow: none; /* Remove any box shadow */
 }
 
 .find-location input[type="text"]:focus {
-    outline: none; /* Remove focus outline (blue glow) */
+    outline: none; /* Remove focus outline */
 }
 
 .find-location input[type="button"] {
@@ -108,24 +117,82 @@ body {
     padding: 40px 0;
 }
 
-.current-weather, .forecast-container {
-    text-align: center;
+/* Center today's card above the others and make it wider */
+.current-weather {
+    display: flex;
+    justify-content: center;  /* Center the current weather card */
     margin-bottom: 20px;
 }
 
-.forecast {
-    display: inline-block;
-    width: 150px;
-    background-color: #ecf0f1;
-    padding: 15px;
-    margin: 10px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+.forecast.today {
+    background-color: #3498db;  /* A lighter blue for today's card */
+    color: white;
+    width: 380px;  /* Make today's card wider */
+    height: 220px;  /* Slightly larger height */
+    margin-bottom: 20px;
+    border-radius: 10px;  /* Consistent border radius */
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);  /* Shadow effect for upright standing */
+    transform: perspective(600px) rotateX(5deg);  /* 3D upright effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.forecast.today {
-    background-color: #3498db;
-    color: white;
+.forecast.today:hover {
+    transform: translateY(-10px);  /* Raise the card on hover */
+}
+
+/* Use Flexbox to align forecast cards horizontally */
+.forecast-container {
+    display: flex;
+    justify-content: center;  /* Center all cards horizontally */
+    gap: 20px;  /* Add space between cards */
+    flex-wrap: wrap;  /* Allow cards to wrap on smaller screens */
+    margin-bottom: 20px;
+}
+
+/* Other cards styling */
+.forecast {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 180px;  /* More rectangular shape for other cards */
+    height: 200px;  /* Fixed height */
+    background-color: #2980b9;  /* Blue background for all cards */
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;  /* Slight rounding on corners */
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);  /* Shadow for floor effect */
+    color: white;  /* Text color set to white */
+    transform: perspective(600px) rotateX(5deg);  /* Tilt for upright effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Smooth hover effect */
+}
+
+.forecast:hover {
+    transform: translateY(-10px);  /* Raise the card on hover */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);  /* Enhance shadow on hover */
+}
+
+/* Center content vertically and horizontally inside forecast cards */
+.forecast-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;  /* Make sure the content takes up the full height of the card */
+    text-align: center;  /* Center all text */
+}
+
+.forecast-content .icon, 
+.forecast-content .degree, 
+.forecast-content .location {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.forecast-header .day-date {
+    display: flex;  /* Align day and date side by side */
+    justify-content: space-between;  /* Space day and date apart */
+    align-items: center;  /* Vertically center */
 }
 
 .forecast-header .day {
@@ -133,8 +200,9 @@ body {
     font-weight: bold;
 }
 
-.forecast-content {
-    margin-top: 10px;
+.forecast-header .date {
+    font-size: 16px;
+    margin-left: 10px;
 }
 
 .forecast-content .degree .num {
@@ -191,7 +259,7 @@ body {
 .delete-btn {
     background: none;           /* Remove the background */
     border: none;               /* Remove the border */
-    color: #3498db;             /* Set the color to blue (same as the links) */
+    color: #3498db;             /* Set the color to blue */
     padding: 0;                 /* Remove padding */
     font-size: 14px;            /* Small font size */
     cursor: pointer;            /* Change cursor to pointer */
@@ -232,7 +300,7 @@ body {
         width: 80%;
         display: block;
         margin: 0 auto;
+   
+
     }
 }
-
-
