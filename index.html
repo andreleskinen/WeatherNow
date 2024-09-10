@@ -2,47 +2,73 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WeatherNow</title>
-    <link rel="stylesheet" href="css/home.css"> <!-- Link to CSS file -->
+    <!-- Link to your CSS -->
+    <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
-    <header>
-        <h1>WeatherNow</h1>
-        <nav>
-            <a href="about.html">About</a>
-        </nav>
-    </header>
-    
-    <main>
-        <section class="weather-section">
+    <div class="site-content">
+        <!-- Header Section -->
+        <div class="site-header">
             <div class="container">
-                <h1 class="moving-text">WeatherNow</h1>
-                <input type="text" id="city-input" placeholder="Enter city name">
-                <button id="get-weather-btn">Get Weather</button>
-                <button id="save-favorite-btn">Save as Favorite</button>
-                <div id="loader" style="display: none;">Loading...</div>
-                <div id="weather-result"></div>
+                <a href="#" class="branding">
+                    <div class="logo-type">
+                        <h1 class="site-title">WeatherNow</h1>
+                        <small class="site-description">Real-time weather updates</small>
+                    </div>
+                </a>
             </div>
-        </section>
+        </div>
 
-        <section id="favorites">
-            <h2>Your Favorite Cities</h2>
-            <ul id="favorites-list"></ul>
-        </section>
+        <!-- Hero Section with City Input -->
+<div class="hero">
+    <div class="container">
+        <form action="#" class="find-location">
+            <input id="city-input" type="text" placeholder="Enter your city...">
+            <ul id="suggestions-list" class="suggestions-list"></ul>  <!-- Suggestions list added here -->
+            <input id="get-weather-btn" type="button" value="Get Weather">
+            <input id="save-favorite-btn" type="button" value="Save as Favorite">
+        </form>
+    </div>
+</div>
 
-        <section id="about">
-            <h2>WeatherNow</h2>
-            <p>WeatherNow is your reliable source for the latest weather updates, helping you stay prepared for any weather conditions.</p>
-        </section>
-    </main>
 
-    <footer>
-        <p>&copy; 2024 WeatherNow.Group Red</p>
-    </footer>
+        <!-- Forecast Table -->
+        <div class="forecast-table">
+            <div class="container">
+                <!-- Current Weather Section -->
+                <div id="current-weather" class="current-weather">
+                    <!-- Current weather will be dynamically inserted here -->
+                </div>
 
-    <script src="script.js"></script> <!-- Link to JavaScript file -->
+                <!-- Forecast for Upcoming Days -->
+                <div id="weather-result" class="forecast-container">
+                    <!-- Weather data will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Favorites Section -->
+        <div class="favorites-section">
+            <div class="container">
+                <h2>Your Favorite Cities</h2>
+                <ul id="favorites-list">
+                    <!-- Favorite cities will be dynamically inserted here -->
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Footer Section -->
+        <footer class="site-footer">
+            <div class="container">
+                <p class="colophon">WeatherNow © 2024. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Link to your JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
-
-
