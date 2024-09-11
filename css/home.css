@@ -284,6 +284,18 @@ body {
     font-size: 14px;
 }
 
+.location {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.actual-location {
+    font-size: 1em;
+    color: #666;  /* Make the actual location name a bit lighter to differentiate it */
+    margin-top: 0.5em;
+}
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .forecast {
