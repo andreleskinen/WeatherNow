@@ -149,6 +149,9 @@ function displayWeather(dailyTemps, cityName) {
                 <div class="num">${Math.round(today.maxTemp)}<sup>°</sup></div>
                 <div class="icon"><img src="assets/icons/${iconFileName}" alt="Weather Icon" class="weather-icon"></div>   
             </div>
+            <div class="temp-range">
+                H: ${Math.round(today.maxTemp)}° L: ${Math.round(today.minTemp)}°
+            </div>
         </div>
     </div>
     `;
@@ -183,6 +186,7 @@ function displayWeather(dailyTemps, cityName) {
 
     weatherResult.innerHTML = weatherHTML;
 }
+
 
 
 // Function to display favorite cities
