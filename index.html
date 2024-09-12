@@ -7,59 +7,72 @@
     <title>WeatherNow</title>
     <!-- Link to your CSS -->
     <link rel="stylesheet" href="css/home.css">
+    <!-- Link to Font Awesome for search icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="site-content">
-        <!-- Header Section -->
-        <div class="site-header">
+        <!-- Main Weather Section -->
+        <div class="weather-main">
             <div class="container">
-                <a href="#" class="branding">
-                    <div class="logo-type">
-                        <h1 class="site-title">WeatherNow</h1>
-                        <small class="site-description">Real-time weather updates</small>
+                <!-- Left Section: Weather Data -->
+                <div class="weather-left">
+					<div class="current-weather-info">
+						<div class="temperature">
+							<span id="temperature-value">--</span><sup>°</sup>
+						</div>
+						<div class="location">
+							<span id="city-name">Loading...</span>
+						</div>
+						<div class="time-date">
+							<!-- Current date for live weather -->
+							<span id="date-time">--:--</span>
+						</div>
+						<div class="weather-condition">
+							<span id="weather-description">---</span>
+						</div>
+					</div>
+					
+					<!-- Forecast section below the current weather -->
+					<div class="forecast-section">
+						<div id="forecast-container">
+							<!-- Forecast data will be inserted here dynamically, without dates -->
+						</div>
+					</div>
+				</div>
+				
+
+                <!-- Right Section: Search, Favorites, and Weather Details -->
+                <div class="weather-right">
+                    <!-- Search box for entering location -->
+                    <div class="search-section">
+                        <input id="city-input" type="text" placeholder="search..." />
+                        <button id="get-weather-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <button id="save-favorite-btn">+</button> <!-- Add to Favorites button -->
                     </div>
-                </a>
-            </div>
-        </div>
 
-        <!-- Hero Section with City Input -->
-<div class="hero">
-    <div class="container">
-        <form action="#" class="find-location">
-            <input id="city-input" type="text" placeholder="Enter your city...">
-            <ul id="suggestions-list" class="suggestions-list"></ul>  <!-- Suggestions list added here -->
-            <input id="get-weather-btn" type="button" value="Get Weather">
-            <input id="save-favorite-btn" type="button" value="Save as Favorite">
-        </form>
-    </div>
-</div>
+                    <!-- Favorite cities list -->
+					<div class="favorites-section">
+    					<h2>Favorites</h2>
+    					<ul id="favorites-list">
+        					<!-- Favorite cities will be dynamically inserted here -->
+    					</ul>
+					</div>
 
-
-        <!-- Forecast Table -->
-        <div class="forecast-table">
-            <div class="container">
-                <!-- Current Weather Section -->
-                <div id="current-weather" class="current-weather">
-                    <!-- Current weather will be dynamically inserted here -->
-                </div>
-
-                <!-- Forecast for Upcoming Days -->
-                <div id="weather-result" class="forecast-container">
-                    <!-- Weather data will be dynamically inserted here -->
+                    <!-- Weather Details (humidity, wind, rain, etc.) -->
+                    <div class="weather-details">
+                        <h3>Weather Details</h3>
+                        <p>Cloudy: <span id="cloudy-percentage">--%</span></p>
+                        <p>Humidity: <span id="humidity-value">--%</span></p>
+                        <p>Wind: <span id="wind-speed">-- km/h</span></p>
+                        <p>Rain: <span id="rain-amount">-- mm</span></p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Favorites Section -->
-        <div class="favorites-section">
-            <div class="container">
-                <h2>Your Favorite Cities</h2>
-                <ul id="favorites-list">
-                    <!-- Favorite cities will be dynamically inserted here -->
-                </ul>
-            </div>
-        </div>
-        
         <!-- Footer Section -->
         <footer class="site-footer">
             <div class="container">

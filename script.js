@@ -24,43 +24,23 @@
     'wind': 'wind.svg'
 };
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Check if geolocation is available
+document.addEventListener('DOMContentLoaded', function () {
+    // Geolocation and fetching weather data on page load
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
+        navigator.geolocation.getCurrentPosition(function (position) {
             const lat = position.coords.latitude.toFixed(4);
             const lon = position.coords.longitude.toFixed(4);
-            getWeather(lat, lon, "Your Location", true);  // Fetch weather for user's location with flag
-        }, function(error) {
-            console.error('Error getting location:', error);
-            alert('Failed to get your location.');
+            getWeather(lat, lon, "Your Location", true);  // Fetch weather for user's location
         });
-    } else {
-        alert('Geolocation is not supported by this browser.');
     }
 
-    // Event listener for the 'Get Weather' button
-    document.getElementById('get-weather-btn').addEventListener('click', function() {
+    // Fetch weather when user searches for a city
+    document.getElementById('get-weather-btn').addEventListener('click', function () {
         const city = document.getElementById('city-input').value.trim();
         if (city) {
             getCoordinatesAndWeather(city);
-        } else {
-            alert('Please enter a city name.');
         }
     });
-
-    // Event listener for the 'Save as Favorite' button
-    document.getElementById('save-favorite-btn').addEventListener('click', function() {
-        const city = document.getElementById('city-input').value.trim();
-        if (city) {
-            saveFavoriteCity(city);
-        } else {
-            alert('Please enter a city name to save.');
-        }
-    });
-
-    // Display saved favorites when the page loads
-    displayFavorites();
 });
 
 
@@ -91,38 +71,57 @@ function getCoordinatesAndWeather(city) {
 
 // Function to fetch weather data
 function getWeather(lat, lon, cityName, isCurrentLocation = false) {
-    const apiKey = 'FJKMR7YWYPQ3NJTAXW6HTPF7P';  // Replace with your Visual Crossing API key
-    const weatherApiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${lat},${lon}?unitGroup=metric&key=${apiKey}&include=current,days&elements=datetime,temp,tempmax,tempmin,conditions,icon&forecastDays=5`;
+    const apiKey = 'FJKMR7YWYPQ3NJTAXW6HTPF7P';  // Your Visual Crossing API key
+    const weatherApiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${lat},${lon}?unitGroup=metric&key=${apiKey}&include=current,days&forecastDays=5`;
 
     fetch(weatherApiUrl)
         .then(response => response.json())
         .then(data => {
-            // Extract current weather
-            const currentWeather = {
-                date: data.currentConditions.datetime,
-                temp: data.currentConditions.temp,
-                conditions: data.currentConditions.conditions,
-                icon: data.currentConditions.icon
-            };
+            const current = data.currentConditions;
+            const dailyTemps = data.days;  // Array that contains the forecast for the next 5 days
 
-            // Extract 5-day forecast
-            const dailyTemps = data.days.slice(0, 5).map(day => ({
-                date: day.datetime,
-                maxTemp: day.tempmax,
-                minTemp: day.tempmin,
-                icon: day.icon  // Get the icon from the API response
-            }));
+            // Update current weather section
+            document.getElementById('temperature-value').textContent = Math.round(current.temp);
+            document.getElementById('city-name').textContent = cityName;
+            
+            // Display current date and time
+            document.getElementById('date-time').textContent = new Date(current.datetime).toLocaleString('sv-SE', { hour: '2-digit', minute: '2-digit', day: 'numeric', month: 'long', year: 'numeric' });
+            
+            document.getElementById('weather-description').textContent = current.conditions;
+            document.getElementById('cloudy-percentage').textContent = `${current.cloudcover}%`;
+            document.getElementById('humidity-value').textContent = `${current.humidity}%`;
+            document.getElementById('wind-speed').textContent = `${current.windspeed} km/h`;
+            document.getElementById('rain-amount').textContent = `${current.precip} mm`;
 
-            // If it's the current location, reverse geocode the lat/lon to get the actual location name
-            if (isCurrentLocation) {
-                fetchReverseGeocode(lat, lon, dailyTemps, currentWeather);
-            } else {
-                displayWeather(dailyTemps, cityName, isCurrentLocation, currentWeather);
-            }
+            // Call displayWeather function to display the 5-day forecast
+            displayWeather(dailyTemps, cityName, isCurrentLocation, current);
+
         })
         .catch(error => {
             console.error('Error fetching weather data:', error);
-            alert('Failed to fetch weather data.');
+        });
+}
+
+
+
+// Function to get coordinates from city name and fetch weather
+function getCoordinatesAndWeather(city) {
+    const geoApiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(city)}&limit=1&appid=e8de836d7d3bd14d7ca482e4e92bb49d`;
+
+    fetch(geoApiUrl)
+        .then(response => response.json())
+        .then(data => {
+            if (data && data.length > 0) {
+                const lat = data[0].lat.toFixed(4);
+                const lon = data[0].lon.toFixed(4);
+                const cityName = data[0].name;
+                getWeather(lat, lon, cityName);
+            } else {
+                alert('City not found.');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching coordinates:', error);
         });
 }
 
@@ -148,105 +147,40 @@ function fetchReverseGeocode(lat, lon, dailyTemps, currentWeather) {
         });
 }
 
-// Update the displayWeather function to use currentWeather.temp for live temperature
 function displayWeather(dailyTemps, cityName, isCurrentLocation = false, currentWeather = null) {
-    const currentWeatherElement = document.getElementById('current-weather');
-    const weatherResult = document.getElementById('weather-result');
-
-    currentWeatherElement.innerHTML = '';  // Clear previous results for current weather
-    weatherResult.innerHTML = '';  // Clear previous results for forecast
+    const forecastContainer = document.getElementById('forecast-container');
+    forecastContainer.innerHTML = '';  // Clear previous forecast results
 
     if (dailyTemps.length === 0 || !currentWeather) {
-        currentWeatherElement.innerHTML = '<p>No weather data available.</p>';
+        forecastContainer.innerHTML = '<p>No weather data available.</p>';
         return;
     }
 
-    const today = dailyTemps[0];
-
-    // Get the current date
-    const currentDate = new Date();
-    const todayDate = new Date(today.date);
-
-    // Check if the weather date is the current date, if so, display "idag"
-    const isToday = (currentDate.toDateString() === todayDate.toDateString());
-    const dayName = isToday ? "idag" : todayDate.toLocaleDateString('sv-SE', { weekday: 'long' });
-
-    // Get the day number and shortened month name (e.g., "10 sep")
-    const dayNumber = todayDate.getDate();  // Get the day number (e.g., "10")
-    const monthShort = todayDate.toLocaleDateString('sv-SE', { month: 'short' });  // Get the shortened month (e.g., "sep")
-    const dateString = `${dayNumber} ${monthShort}`;
-
-    // Get the icon from the API response and map it to your local icon
-    const iconFileName = iconMapping[currentWeather.icon] || 'default-icon.svg';  // Use currentWeather.icon instead of today.icon
-
-    // Show "Your Location" when it's the current location, and display the actual city name underneath
-    const locationLabel = isCurrentLocation ? "Your Location" : cityName;
-    const actualCityName = isCurrentLocation ? cityName : '';  // Show actual city name only if it's the current location
-
-    let currentWeatherHTML = `
-    <div class="forecast today">
-        <div class="forecast-header">
-            <div class="day-date">
-                <div class="day">${dayName}</div>
-                <div class="date">${dateString}</div>
-            </div>
-        </div>
-        <div class="forecast-content">
-            <div class="location">${locationLabel}</div>
-            ${isCurrentLocation ? `<div class="actual-location">${actualCityName}</div>` : ''} <!-- Show actual city name only if geolocation is used -->
-            <div class="degree">
-                <div class="num">${Math.round(currentWeather.temp)}<sup>°</sup></div>  <!-- Use currentWeather.temp instead of today.maxTemp -->
-                <div class="icon"><img src="assets/icons/${iconFileName}" alt="Weather Icon" class="weather-icon"></div>   
-            </div>
-            <div class="temp-range">
-                H: ${Math.round(today.maxTemp)}° L: ${Math.round(today.minTemp)}°
-            </div>
-        </div>
-    </div>
-    `;
-
-    currentWeatherElement.innerHTML = currentWeatherHTML;
-
-    // Add forecast for the next days (after today)
-    let weatherHTML = '';
-    dailyTemps.slice(1).forEach(day => {
-        const dayDate = new Date(day.date);
+    // Display forecast for the next 5 days, skipping the first item (which is today)
+    dailyTemps.slice(1, 6).forEach(day => { // Skip today (index 0)
+        const dayDate = new Date(day.datetime);  // Make sure you're using the correct date field
         const dayName = dayDate.toLocaleDateString('sv-SE', { weekday: 'long' });
-        const dayNumber = dayDate.getDate();
-        const monthShort = dayDate.toLocaleDateString('sv-SE', { month: 'short' });
-        const dateString = `${dayNumber} ${monthShort}`;
-        const iconFileName = iconMapping[day.icon] || 'default-icon.svg';  // Map the icon for each day
+        const iconFileName = iconMapping[day.icon] || 'default-icon.svg';  // Use your icon mapping
 
-        weatherHTML += `
+        let forecastHTML = `
             <div class="forecast">
                 <div class="forecast-header">
-                    <div class="day-date">
-                        <div class="day">${dayName}</div>
-                        <div class="date">${dateString}</div>
-                    </div>
+                    <div class="day">${dayName}</div>
                 </div>
                 <div class="forecast-content">
-                    <div class="degree">${Math.round(day.maxTemp)}<sup>°</sup></div>
-                    <small>${Math.round(day.minTemp)}°</small>
-                    <div class="icon"><img src="assets/icons/${iconFileName}" alt="Weather Icon" class="weather-icon"></div>
+                    <div class="degree">
+                        <div>H: ${Math.round(day.tempmax)}°</div>
+                        <div>L: ${Math.round(day.tempmin)}°</div>
+                        <!-- Commenting out the icons for now -->
+                        <!-- <div class="icon"><img src="assets/iconsmono/${iconFileName}" alt="Weather Icon" class="weather-icon"></div> -->
+                    </div>
                 </div>
             </div>
         `;
+
+        forecastContainer.innerHTML += forecastHTML;
     });
-
-    weatherResult.innerHTML = weatherHTML;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 // Function to save favorite city
 function saveFavoriteCity(city) {
@@ -273,7 +207,7 @@ function displayFavorites() {
 
         a.addEventListener('click', function(e) {
             e.preventDefault();
-            getCoordinatesAndWeather(city);
+            getCoordinatesAndWeather(city); // Your existing function to get weather for the city
         });
 
         const deleteButton = document.createElement('button');
@@ -297,3 +231,14 @@ function deleteFavoriteCity(index) {
     localStorage.setItem('favorites', JSON.stringify(favorites));  // Update localStorage
     displayFavorites();  // Re-render favorites list
 }
+
+// Event listener for the "Add to Favorites" button
+document.getElementById('save-favorite-btn').addEventListener('click', function() {
+    const city = document.getElementById('city-input').value;
+    if (city.trim() !== "") {
+        saveFavoriteCity(city);
+    }
+});
+
+// Initially display the favorites when the page loads
+window.onload = displayFavorites;
