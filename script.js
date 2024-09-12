@@ -63,17 +63,11 @@ document.addEventListener('DOMContentLoaded', function() {
     displayFavorites();
 });
 
-// Function to save favorite city
-function saveFavoriteCity(city) {
-    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    if (!favorites.includes(city)) {  // Prevent duplicates
-        favorites.push(city);
-        localStorage.setItem('favorites', JSON.stringify(favorites));
-    }
-    displayFavorites();  // Update the list of favorites
-}
+
+
 
 // Function to get coordinates from OpenWeatherMap API and fetch weather data
+// Function to fetch coordinates and weather for a given city
 function getCoordinatesAndWeather(city) {
     const geoApiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(city)}&limit=1&appid=e8de836d7d3bd14d7ca482e4e92bb49d`;
 
@@ -98,11 +92,20 @@ function getCoordinatesAndWeather(city) {
 // Function to fetch weather data
 function getWeather(lat, lon, cityName, isCurrentLocation = false) {
     const apiKey = 'FJKMR7YWYPQ3NJTAXW6HTPF7P';  // Replace with your Visual Crossing API key
-    const weatherApiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${lat},${lon}?unitGroup=metric&key=${apiKey}&include=days&elements=datetime,tempmax,tempmin,conditions,icon&forecastDays=5`;
+    const weatherApiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${lat},${lon}?unitGroup=metric&key=${apiKey}&include=current,days&elements=datetime,temp,tempmax,tempmin,conditions,icon&forecastDays=5`;
 
     fetch(weatherApiUrl)
         .then(response => response.json())
         .then(data => {
+            // Extract current weather
+            const currentWeather = {
+                date: data.currentConditions.datetime,
+                temp: data.currentConditions.temp,
+                conditions: data.currentConditions.conditions,
+                icon: data.currentConditions.icon
+            };
+
+            // Extract 5-day forecast
             const dailyTemps = data.days.slice(0, 5).map(day => ({
                 date: day.datetime,
                 maxTemp: day.tempmax,
@@ -112,9 +115,9 @@ function getWeather(lat, lon, cityName, isCurrentLocation = false) {
 
             // If it's the current location, reverse geocode the lat/lon to get the actual location name
             if (isCurrentLocation) {
-                fetchReverseGeocode(lat, lon, dailyTemps);
+                fetchReverseGeocode(lat, lon, dailyTemps, currentWeather);
             } else {
-                displayWeather(dailyTemps, cityName, isCurrentLocation);
+                displayWeather(dailyTemps, cityName, isCurrentLocation, currentWeather);
             }
         })
         .catch(error => {
@@ -123,8 +126,9 @@ function getWeather(lat, lon, cityName, isCurrentLocation = false) {
         });
 }
 
+
 // Function to reverse geocode latitude and longitude to get the actual city name
-function fetchReverseGeocode(lat, lon, dailyTemps) {
+function fetchReverseGeocode(lat, lon, dailyTemps, currentWeather) {
     const reverseGeocodeUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=e8de836d7d3bd14d7ca482e4e92bb49d`;
 
     fetch(reverseGeocodeUrl)
@@ -132,28 +136,28 @@ function fetchReverseGeocode(lat, lon, dailyTemps) {
         .then(data => {
             if (data && data.length > 0) {
                 const actualCityName = data[0].name;  // The actual city name, e.g., Åkersberga
-                displayWeather(dailyTemps, actualCityName, true);  // Pass the actual city name to display
+                displayWeather(dailyTemps, actualCityName, true, currentWeather);  // Pass the actual city name to display
             } else {
                 console.error('Reverse geocoding failed.');
-                displayWeather(dailyTemps, 'Unknown Location', true);
+                displayWeather(dailyTemps, 'Unknown Location', true, currentWeather);
             }
         })
         .catch(error => {
             console.error('Error fetching reverse geocode data:', error);
-            displayWeather(dailyTemps, 'Unknown Location', true);
+            displayWeather(dailyTemps, 'Unknown Location', true, currentWeather);
         });
 }
 
-
-function displayWeather(dailyTemps, cityName, isCurrentLocation = false) {
-    const currentWeather = document.getElementById('current-weather');
+// Update the displayWeather function to use currentWeather.temp for live temperature
+function displayWeather(dailyTemps, cityName, isCurrentLocation = false, currentWeather = null) {
+    const currentWeatherElement = document.getElementById('current-weather');
     const weatherResult = document.getElementById('weather-result');
 
-    currentWeather.innerHTML = '';  // Clear previous results for current weather
+    currentWeatherElement.innerHTML = '';  // Clear previous results for current weather
     weatherResult.innerHTML = '';  // Clear previous results for forecast
 
-    if (dailyTemps.length === 0) {
-        currentWeather.innerHTML = '<p>No weather data available.</p>';
+    if (dailyTemps.length === 0 || !currentWeather) {
+        currentWeatherElement.innerHTML = '<p>No weather data available.</p>';
         return;
     }
 
@@ -173,7 +177,7 @@ function displayWeather(dailyTemps, cityName, isCurrentLocation = false) {
     const dateString = `${dayNumber} ${monthShort}`;
 
     // Get the icon from the API response and map it to your local icon
-    const iconFileName = iconMapping[today.icon] || 'default-icon.svg';  // Use default if not found
+    const iconFileName = iconMapping[currentWeather.icon] || 'default-icon.svg';  // Use currentWeather.icon instead of today.icon
 
     // Show "Your Location" when it's the current location, and display the actual city name underneath
     const locationLabel = isCurrentLocation ? "Your Location" : cityName;
@@ -191,7 +195,7 @@ function displayWeather(dailyTemps, cityName, isCurrentLocation = false) {
             <div class="location">${locationLabel}</div>
             ${isCurrentLocation ? `<div class="actual-location">${actualCityName}</div>` : ''} <!-- Show actual city name only if geolocation is used -->
             <div class="degree">
-                <div class="num">${Math.round(today.maxTemp)}<sup>°</sup></div>
+                <div class="num">${Math.round(currentWeather.temp)}<sup>°</sup></div>  <!-- Use currentWeather.temp instead of today.maxTemp -->
                 <div class="icon"><img src="assets/icons/${iconFileName}" alt="Weather Icon" class="weather-icon"></div>   
             </div>
             <div class="temp-range">
@@ -201,7 +205,7 @@ function displayWeather(dailyTemps, cityName, isCurrentLocation = false) {
     </div>
     `;
 
-    currentWeather.innerHTML = currentWeatherHTML;
+    currentWeatherElement.innerHTML = currentWeatherHTML;
 
     // Add forecast for the next days (after today)
     let weatherHTML = '';
@@ -244,6 +248,15 @@ function displayWeather(dailyTemps, cityName, isCurrentLocation = false) {
 
 
 
+// Function to save favorite city
+function saveFavoriteCity(city) {
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    if (!favorites.includes(city)) {  // Prevent duplicates
+        favorites.push(city);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+    }
+    displayFavorites();  // Update the list of favorites
+}
 
 // Function to display favorite cities
 function displayFavorites() {
