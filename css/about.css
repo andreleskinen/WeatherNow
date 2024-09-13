@@ -211,5 +211,47 @@ footer {
    
 }
 
+/* Header Styles */
+header nav {
+    display: flex;
+    justify-content: center;
+    background-color: #333; /* Background for the navbar */
+    padding: 15px 0;
+}
+
+header nav a {
+    color: #fdfcfc;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.4s;
+    margin: 0 10px; /* Adds some spacing between the buttons */
+}
+
+/* Hover effect for both Home and About buttons */
+header nav a:hover {
+    color: #fff;
+    background-color: #007acc; /* Background change on hover */
+    padding: 10px 30px; /* Adds a small effect when hovered */
+    border-radius: 5px;
+}
+
+/* Specific styling for the About button if needed */
+.about-button {
+    background-color: #007acc; /* Initial background color for About button */
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for About button */
+.about-button:hover {
+    background-color: #005f99;
+    transform: scale(1.1); /* Small scaling effect */
+}
 
 
