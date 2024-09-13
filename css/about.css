@@ -4,82 +4,56 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f2f2f2;
-    color: rgb(253, 248, 248);
-}
-
-
-/* Container to manage sidebar and main content layout */
-.container {
-    display: flex;
-    height: 100%;
-    width: 100%;
-}
-
-/* Sidebar styling */
-.sidebar {
-    width: 25%; /* Flexible width for better screen adaptation */
-    max-width: 240px;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px); /* For Safari support */
-    
-    padding: 20px;
+    color: rgb(9, 8, 8);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    min-height: 100vh;
+}
+
+/* Container to manage main content layout */
+.container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 0 20px;
     box-sizing: border-box;
-    color: white;
-    border-left: 1px solid rgba(6, 6, 6, 0.1);
-    position: fixed;
-    top: 0;
-    right: 0;
-    overflow: hidden; /* Hide scrollbars in sidebar */
 }
 
-/* Styling for home button as simple text with underline on hover */
-.sidebar .home-btn {
+.home-button {
+    display: inline-block;
+    background-color: #0277bd;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
     text-decoration: none;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-align: left;
-    border-bottom: 2px solid transparent; /* Initially no underline */
-    transition: border-color 0.3s ease, color 0.3s ease; /* Transition for underline and color */
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
 }
 
-.sidebar .home-btn:hover {
-    color: #f0f0f0; /* Slight color change on hover */
-    border-bottom: 2px solid white; /* Underline on hover */
-}
-
-/* Sidebar footer */
-.sidebar-footer {
-    color: white;
-    text-align: center;
-    font-size: 14px;
-    padding-top: 20px;
+.home-button:hover {
+    background-color: #01579b;
 }
 
 /* Main content styling */
 main {
-    flex-grow: 1; /* Takes up the remaining space */
-    margin-right: 0; /* No extra margin needed */
-    margin-left: 0%; /* Leave space for sidebar */
-    margin-right:18%;
+    flex: 1;
     padding: 20px;
-    background-image: url('/img/backround.jpg'); /* Ensure the correct image path */
+    background-image: url('/img/blue-metal-technology-background-abstract-600nw-535432471.webp'); /* Ensure the correct image path */
+    background-size: cover;
+    background-position: center;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: auto; /* Allows scrolling inside main content only */
-    height: 100vh; /* Full height of the viewport */
-    box-sizing: border-box; /* Ensure padding doesn't overflow */
+    overflow: auto;
+    box-sizing: border-box;
 }
 
 /* Team Section styling */
 .team-section {
     margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.9); /* Slightly opaque background */
+    border-radius: 10px;
+    padding: 20px;
 }
 
 .team-members {
@@ -91,47 +65,65 @@ main {
 
 .team-member {
     background-color: rgba(255, 255, 255, 0.85);
-    padding: 10px;
+    padding: 15px;
     border-radius: 10px;
-    width: 120px;
+    width: 150px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .team-member img {
-    width: 100%;
-    max-width: 100px;
-    height: auto;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
     border-radius: 50%;
     border: 2px solid rgba(0, 0, 0, 0.3);
 }
 
 .team-member h3 {
     margin-top: 10px;
-    color: #5a5b5e;
+    color: #333;
+    font-size: 16px;
 }
 
 .team-member:hover {
     transform: scale(1.1);
-    background-color: rgba(0, 119, 189, 0.2);
+    background-color: rgba(0, 119, 189, 0.1);
 }
 
 /* API and Project Section styling */
 .api-section, .project-section {
     margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.9); /* Slightly opaque background */
+    border-radius: 10px;
+    padding: 20px;
 }
 
-/* Responsive styling for different screen sizes */
+.api-section a, .project-section a {
+    color: #0277bd;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.api-section a:hover, .project-section a:hover {
+    text-decoration: underline;
+}
+
+.sidebar-footer{
+    padding: 20px;
+    text-align: center;
+    position: relative; /* Keep footer fixed at the bottom of the content */
+    width: 100%;
+    color: white;
+   
+}
+
 
 /* For tablets and small screens */
 @media screen and (max-width: 1024px) {
-    .sidebar {
-        width: 200px; /* Reduce sidebar width on smaller screens */
-    }
-
     main {
-        margin-left: 200px; /* Adjust for smaller sidebar */
+        padding: 10px;
     }
 
     .team-members {
@@ -141,33 +133,6 @@ main {
 
 /* For mobile devices */
 @media screen and (max-width: 768px) {
-    .sidebar {
-        width: 100%;
-        height: auto;
-        flex-direction: row;
-        justify-content: space-between;
-        background-color: #0277bd;
-        border: none; /* Removes border for seamless top bar */
-        padding: 10px;
-        position: fixed;
-        top: 0;
-        right: 0;
-    }
-
-    .sidebar .home-btn {
-        font-size: 16px;
-        width: auto;
-    }
-
-    .sidebar-footer {
-        display: none;
-    }
-
-    main {
-        margin-left: 0; /* Full width for main content */
-        padding: 10px;
-    }
-
     .team-members {
         flex-direction: column;
         align-items: center;
@@ -175,20 +140,17 @@ main {
 
     .team-member {
         width: 100%;
-        max-width: 300px;
+        max-width: 250px;
+    }
+
+    .api-section, .project-section {
+        padding: 15px;
     }
 }
 
 /* For very small screens (mobile landscape or portrait) */
 @media screen and (max-width: 480px) {
     .team-member {
-        max-width: 250px;
-    }
-
-    .sidebar .home-btn {
-        font-size: 14px;
+        max-width: 200px;
     }
 }
-
-
-
