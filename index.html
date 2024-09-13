@@ -20,14 +20,12 @@
 					<div class="current-weather-info">
 						<div class="temperature">
 							<span id="temperature-value">--</span><sup>°</sup>
+							<span id="date-time">--:--</span>
 						</div>
 						<div class="location">
 							<span id="city-name">Loading...</span>
 						</div>
-						<div class="time-date">
-							<!-- Current date for live weather -->
-							<span id="date-time">--:--</span>
-						</div>
+						
 						<div class="weather-condition">
 							<span id="weather-description">---</span>
 						</div>
@@ -54,13 +52,13 @@
                         
                     </div>
 
-                    <!-- Favorite cities list -->
-					<div class="favorites-section">
-    					<h2>Favorites</h2>
-    					<ul id="favorites-list">
-        					<!-- Favorite cities will be dynamically inserted here -->
-    					</ul>
+                    <div class="favorites-container">
+						<h2>Favorites</h2>
+						<ul id="favorites-list">
+							<!-- List of favorite cities will be inserted here by JavaScript -->
+						</ul>
 					</div>
+					
 
                     <!-- Weather Details (humidity, wind, rain, etc.) -->
                     <div class="weather-details">
@@ -83,4 +81,5 @@
     <!-- Link to your JavaScript -->
     <script src="script.js"></script>
 </body>
+
 </html>
