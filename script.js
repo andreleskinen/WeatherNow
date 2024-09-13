@@ -47,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // Function to get coordinates from OpenWeatherMap API and fetch weather data
-// Function to fetch coordinates and weather for a given city
 function getCoordinatesAndWeather(city) {
     const geoApiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(city)}&limit=1&appid=e8de836d7d3bd14d7ca482e4e92bb49d`;
 
@@ -57,7 +56,7 @@ function getCoordinatesAndWeather(city) {
             if (data && data.length > 0) {
                 const lat = data[0].lat.toFixed(4);
                 const lon = data[0].lon.toFixed(4);
-                const cityName = data[0].name;  
+                const cityName = data[0].name;
                 getWeather(lat, lon, cityName);
             } else {
                 alert('City not found.');
@@ -84,16 +83,17 @@ function getWeather(lat, lon, cityName, isCurrentLocation = false) {
             document.getElementById('temperature-value').textContent = Math.round(current.temp);
             document.getElementById('city-name').textContent = cityName;
             
-            // Display current date and time
-            document.getElementById('date-time').textContent = new Date(current.datetime).toLocaleString('sv-SE', { hour: '2-digit', minute: '2-digit', day: 'numeric', month: 'long', year: 'numeric' });
-            
+            // Display only the month and day in the current weather section
+            const todayDate = new Date().toLocaleString('sv-SE', { day: 'numeric', month: 'long' });
+            document.getElementById('date-time').textContent = todayDate;
+
             document.getElementById('weather-description').textContent = current.conditions;
             document.getElementById('cloudy-percentage').textContent = `${current.cloudcover}%`;
             document.getElementById('humidity-value').textContent = `${current.humidity}%`;
             document.getElementById('wind-speed').textContent = `${current.windspeed} km/h`;
             document.getElementById('rain-amount').textContent = `${current.precip} mm`;
 
-            // Call displayWeather function to display the 5-day forecast
+            // Call displayWeather function to display the 5-day forecast without today's date
             displayWeather(dailyTemps, cityName, isCurrentLocation, current);
 
         })
@@ -147,6 +147,7 @@ function fetchReverseGeocode(lat, lon, dailyTemps, currentWeather) {
         });
 }
 
+// Function to display the weather forecast for the next 5 days (without the current day)
 function displayWeather(dailyTemps, cityName, isCurrentLocation = false, currentWeather = null) {
     const forecastContainer = document.getElementById('forecast-container');
     forecastContainer.innerHTML = '';  // Clear previous forecast results
@@ -182,6 +183,9 @@ function displayWeather(dailyTemps, cityName, isCurrentLocation = false, current
     });
 }
 
+
+
+
 // Function to save favorite city
 function saveFavoriteCity(city) {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
@@ -211,7 +215,7 @@ function displayFavorites() {
         });
 
         const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Delete';
+        deleteButton.textContent = 'x';
         deleteButton.classList.add('delete-btn');
 
         deleteButton.addEventListener('click', function() {

@@ -39,25 +39,44 @@ body {
     padding-left: 50px;
 }
 
-.temperature {
-    font-size: 150px;
-    font-weight: bold;
+/* Container for temperature and date-time */
+.temperature-container {
+    display: inline-flex; /* Allows temperature and date-time to sit inline */
+    align-items: flex-end; /* Aligns the date to the bottom of the temperature */
 }
 
+/* Temperature styling */
+.temperature {
+    font-size: 100px; /* Large font size for the temperature */
+    font-weight: lighter;
+    margin-right: 10px; /* Space between the temperature and the date */
+}
+
+/* Date styling (smaller font inside the same container) */
+#date-time {
+    font-size: 24px; /* Smaller font size for the date */
+    vertical-align: bottom; /* Align the date with the bottom of the temperature */
+    color: inherit; /* Inherit the color from the container */
+}
+
+
+
+
+
+
+/* Location styling */
 .location {
     font-size: 50px;
     margin-top: 20px;
+    color: inherit;
 }
 
-.time-date {
-    font-size: 20px;
-    margin-top: 10px;
-}
-
+/* Weather condition styling */
 .weather-condition {
     font-size: 30px;
     margin-top: 20px;
 }
+
 
 /* Forecast Section */
 .forecast-section {
@@ -123,7 +142,6 @@ body {
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box; /* Ensure padding doesn't overflow */
-    
 }
 
 
@@ -184,6 +202,13 @@ body {
     margin-bottom: 10px;
 }
 
+/* Style for favorite city links */
+.favorites-section a {
+    text-decoration: none; /* Remove underline */
+    color: white; /* Set the color of the city name */
+    font-size: 18px; /* Adjust the font size if needed */
+}
+
 #favorites-list {
     list-style: none;
     padding: 0;
@@ -192,6 +217,20 @@ body {
 
 #favorites-list li {
     padding: 5px 0;
+}
+
+/* Style for the delete 'x' button */
+.delete-btn {
+    background: none; /* No background */
+    border: none; /* No border */
+    color: white; /* Set the color of the 'x' */
+    font-size: 18px; /* Adjust the size */
+    cursor: pointer; /* Change cursor to pointer */
+    margin-left: 10px; /* Add some space between the city and the 'x' */
+}
+
+.delete-btn:hover {
+    color: red; /* Optional: Change color on hover for better UX */
 }
 
 /* Weather Details Section */
