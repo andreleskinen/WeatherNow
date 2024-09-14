@@ -84,8 +84,9 @@ function getWeather(lat, lon, cityName, isCurrentLocation = false) {
             document.getElementById('temperature-value').textContent = Math.round(current.temp);
             document.getElementById('city-name').textContent = cityName;
             
-            // Display current date and time
-            document.getElementById('date-time').textContent = new Date(current.datetime).toLocaleString('sv-SE', { hour: '2-digit', minute: '2-digit', day: 'numeric', month: 'long', year: 'numeric' });
+            const todayDate = new Date().toLocaleString('sv-SE', { day: 'numeric', month: 'long' });
+            document.getElementById('date-time').textContent = todayDate;
+
             
             document.getElementById('weather-description').textContent = current.conditions;
             document.getElementById('cloudy-percentage').textContent = `${current.cloudcover}%`;
@@ -222,26 +223,6 @@ function displayFavorites() {
         li.appendChild(deleteButton);
         favoritesList.appendChild(li);
     });
-}
-
-
-
-function updateFavoritesList() {
-    favoritesList.innerHTML = favorites.map(city => `
-        <li>
-            ${city} <button class="delete-btn" data-city="${city}">&times;</button>
-        </li>
-    `).join('');
-}
-
-
-function handleDeleteFavorite(e) {
-    if (e.target.classList.contains('delete-btn')) {
-        const city = e.target.getAttribute('data-city');
-        favorites = favorites.filter(fav => fav !== city);
-        localStorage.setItem('favorites', JSON.stringify(favorites));
-        updateFavoritesList();
-    }
 }
 
 // Function to delete a favorite city

@@ -10,6 +10,34 @@ body {
     min-height: 100vh;
 }
 
+
+h1 {
+    font-size: 48px;
+    font-weight: 600;
+    color: #c4bdbd;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-top: -20px;
+    margin-bottom: 30px;
+    position: relative;
+    font-family: 'Georgia', serif;  /* Elegant serif font for a clean look */
+    
+    /* Subtle Shadow for depth */
+    text-shadow: 1px 1px 5px white(255, 255, 255, 0.1);
+    
+    /* Border effect on hover */
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.4s ease, color 0.4s ease;
+}
+
+/* Hover Effect */
+h1:hover {
+    border-bottom: 2px solid #0277bd;  /* Subtle underline on hover */
+    color: #0277bd;  /* Color change on hover */
+}
+
+
+
 .site-content {
     flex: 1;
 }
@@ -17,91 +45,96 @@ body {
 /* Main weather section container */
 .weather-main {
     flex: 1;
-    padding: 100px;
+    padding: 50px;
     background-image: url('/img/blue-metal-technology-background-abstract-600nw-535432471.webp'); /* Ensure the correct image path */
     background-size: cover;
     background-position: center;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(255, 254, 254, 0.1);
     overflow: auto;
     box-sizing: border-box;
 }
 
 /* Layout container */
 .container {
+    font-size:x-small;
     display: flex;
+    flex-direction: column; /* Start with column layout for small screens */
     justify-content: space-between;
-    max-width: 1200px;
+    
     background-color: rgba(255, 255, 255, 0.9);
-    padding: 90px;
-    position: center;
+    padding:100px; /* Adjusted for smaller screens */
     border-radius: 9px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Left Section: Weather Data */
 .weather-left {
-    flex: 1;
-    padding-right: 20px;
+    padding-right: 60px;
 }
 
 .current-weather-info {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
+   
+ 
 }
 
 .temperature {
-    font-size: 64px;
+    font-size: 50px; /* Adjusted for smaller screens */
     font-weight: bold;
-    color: #0277bd;
+    color: #0698ed;
 }
 
 #temperature-value {
-    font-size: 64px;
+    font-size: 60px;
 }
 
 sup {
-    font-size: 32px;
+    font-size: 24px; /* Adjusted for smaller screens */
 }
 
 #date-time {
-    font-size: 16px;
-    color: #666;
+    font-size: 19px;
+    color: #000000;
     margin-top: 5px;
 }
 
 .location {
-    font-size: 24px;
+    font-size: 25px;
     font-weight: bold;
     color: #333;
 }
 
 .weather-condition {
-    font-size: 18px;
-    color: #555;
+    font-size: 24px;
+    color: #040404;
     margin-top: 10px;
 }
 
 .weather-icon {
-    width: 50px;
-    height: 50px;
+    width: 49px;
+    height: 40px;
     margin-right: 10px;
 }
 
 /* Forecast Section */
 .forecast-section {
-    margin-top: 20px;
+    margin-top: 1px;
 }
 
 #forecast-container {
     display: flex;
     justify-content: space-between;
-    gap: 10px;
+    gap: 9px;
+    font-size: medium;
+    padding-bottom: 10%;
+    
+    
 }
 
 /* Right Section: Search, Favorites, and Details */
 .weather-right {
-    flex: 1;
     padding-left: 20px;
 }
 
@@ -111,6 +144,7 @@ sup {
     justify-content: space-between;
     position: relative;
     margin-bottom: 20px;
+    
 }
 
 #city-input {
@@ -118,7 +152,7 @@ sup {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -128,9 +162,24 @@ sup {
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
-    margin-left: 10px;
+    margin-left: 9px;
+    margin-right: 9px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+}
+
+#save-favorite-btn {
+    background-color: #0277bd;;; /* Färg på knappen */
+    color: white; /* Textfärg */
+    padding: 10px 15px; /* Inre marginaler */
+    border: none; /* Ingen kantlinje */
+    border-radius: 5px; /* Rundade hörn */
+    cursor: pointer; /* Ändra muspekaren till en hand */
+    transition: background-color 0.3s ease; /* Mjuk övergång för färgändringar */
+}
+
+#save-favorite-btn:hover {
+    background-color: #01579b; /* Färg på knappen när du hovrar över den */
 }
 
 #get-weather-btn:hover {
@@ -150,78 +199,65 @@ sup {
     display: none;  /* Hidden by default */
 }
 
-.suggestions-container div {
-    padding: 10px;
-    cursor: pointer;
-}
 
-.suggestions-container div:hover {
-    background-color: #f0f0f0;
-}
 
 /* Favorites Section */
 .favorites-container {
     margin-top: 20px;
-}
-
-.toggle-favorites-btn {
     background-color: #0277bd;
     color: white;
-    padding: 10px 20px;
-    border: none;
     border-radius: 5px;
-    text-decoration: none;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.toggle-favorites-btn:hover {
-    background-color: #01579b;
-}
-
-.favorites-list-container {
-    display: none;  /* Hidden by default */
-}
-
-.favorites-list-container.open {
-    display: block;
+    padding: 10px;
 }
 
 #favorites-list {
     list-style: none;
     padding: 0;
-    margin-top: 10px;
+    margin: 0;
+    color: #e1cfcf; /* Textfärg för hela listan */
+    
 }
 
 #favorites-list li {
-    font-size: 16px;
-    padding: 5px 0;
-    color: #555;
     position: relative;
+    margin: 10px 0;
+    padding: 5px 0;
+
+    border-bottom: 1px solid transparent;
+    color: #ffffff; /* Textfärg för varje stad */
+   
+}
+
+#favorites-list a {
+    text-decoration: none;
+    color: #ffffff; /* Textfärg för länkar */
+    font-size: small;
 }
 
 .delete-btn {
-    background-color: #434242;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    font-size: 16px;
-    cursor: pointer;
     position: absolute;
-    right: 0;
+    right: 10px;
     top: 50%;
     transform: translateY(-50%);
-    padding: 5px;
+    background-color: #969393;
+    color: white;
+    border: none;
+    padding: 3px 7px;
+    border-radius: 3px;
+    font-size: 12px;
+    cursor: pointer;
 }
 
 .delete-btn:hover {
-    background-color: #4d4a4a;
+    background-color: #b00505;
 }
+
 
 /* Weather Details */
 .weather-details {
     margin-top: 20px;
+    margin-left: 2%;
+    font-size: medium;
 }
 
 /* About Button */
@@ -235,6 +271,7 @@ sup {
     font-size: 16px;
     transition: background-color 0.3s ease;
     margin-top: 20px;
+    margin-left: 2%;
 }
 
 .about-button:hover {
@@ -243,11 +280,84 @@ sup {
 
 /* Footer */
 .footer {
-    
-   padding: 20px;
- text-align: center;
- position: relative; /* Keep footer fixed at the bottom of the content */
- width: 100%;
- color: white;
-       
+   
+    text-align: center;
+    position: relative;
+    color: white;
+    padding-top: 5%;
+   
+   
+}
+
+
+
+
+
+
+/* Responsive Design */
+/* For large screens */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        padding: 50px;
+    }
+
+    .weather-left,
+    .weather-right {
+        flex: 1;
+    }
+
+    .city-input{
+        font-size: large;
+    }
+    h1 {
+        font-size: 48px; /* Fast storlek för riktigt stora skärmar */
+    }
+
+  
+}
+
+
+/* For small screens */
+@media (max-width: 767px) {
+    .container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .weather-main {
+        padding: 30px;
+    }
+
+    #city-input {
+        width: calc(900% - 70px);
+   
+    }
+
+    #get-weather-btn {
+        width: 60px;
+    }
+
+    .temperature {
+        font-size: 30px;
+    }
+
+    sup {
+        font-size: 20px;
+    }
+
+    h1 {
+        font-size: 8vw; /* Öka storleken något på små skärmar för att bibehålla läsbarhet */
+        letter-spacing: 1px; /* Minska bokstavsutrymmet för mindre skärmar */
+    }
+
+    #forecast-container{
+        font-size: small;
+    }
+
+    .current-weather-info{
+        padding-left: 3%;
+    }
+
+   
 }

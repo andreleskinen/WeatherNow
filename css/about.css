@@ -10,6 +10,33 @@ body {
     min-height: 100vh;
 }
 
+
+h1 {
+    font-size: 48px;
+    font-weight: 600;
+    color: #dcdbdb;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-top:5px;
+    margin-bottom: 30px;
+    position: relative;
+    font-family: 'Georgia', serif;  /* Elegant serif font for a clean look */
+    
+    /* Subtle Shadow for depth */
+    text-shadow: 1px 1px 5px white(255, 255, 255, 0.1);
+    
+    /* Border effect on hover */
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.4s ease, color 0.4s ease;
+}
+
+/* Hover Effect */
+h1:hover {
+    border-bottom: 2px solid #0277bd;  /* Subtle underline on hover */
+    color: #0277bd;  /* Color change on hover */
+}
+
+
 /* Container to manage main content layout */
 .container {
     display: flex;
@@ -152,5 +179,10 @@ main {
 @media screen and (max-width: 480px) {
     .team-member {
         max-width: 200px;
+    }
+
+    h1 {
+        font-size: 8vw; /* Öka storleken något på små skärmar för att bibehålla läsbarhet */
+        letter-spacing: 1px; /* Minska bokstavsutrymmet för mindre skärmar */
     }
 }
