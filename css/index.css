@@ -314,6 +314,7 @@ sup {
         font-size: 48px; /* Fast storlek för riktigt stora skärmar */
     }
 
+
   
 }
 
@@ -321,11 +322,13 @@ sup {
 /* For small screens */
 @media (max-width: 767px) {
     .container {
+       
         flex-direction: column;
         padding: 20px;
     }
 
     .weather-main {
+        font-size:medium ;
         padding: 30px;
     }
 
@@ -340,6 +343,7 @@ sup {
 
     .temperature {
         font-size: 30px;
+        margin-left: 30%;
     }
 
     sup {
@@ -348,15 +352,21 @@ sup {
 
     h1 {
         font-size: 8vw; /* Öka storleken något på små skärmar för att bibehålla läsbarhet */
-        letter-spacing: 1px; /* Minska bokstavsutrymmet för mindre skärmar */
+        letter-spacing:1px; /* Minska bokstavsutrymmet för mindre skärmar */
     }
 
     #forecast-container{
         font-size: small;
+        margin-left: -2%;
+        margin-top: -25%;
+        margin-bottom: 2%;
     }
 
     .current-weather-info{
         padding-left: 3%;
+    }
+    .favorites-container{
+        margin-right:7%;
     }
 
    
