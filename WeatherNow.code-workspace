@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../../../../Downloads/weather-icons-master/design/fill/animation-ready"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "WeatherNow"
+	}
+}
