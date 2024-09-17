@@ -17,17 +17,59 @@
                 <!-- Left Section: Weather Data -->
                 <div class="weather-left">
                     <div class="current-weather-info">
-                        <div class="temperature">
-                            <span id="temperature-value">--</span><sup>°</sup>
+                        <div class="top-bar">
+                            <div id="city-name" class="location">Your Location</div>
+                            <div id="date-time" class="date-time">2024.09.16</div>
                         </div>
-                        <div id="date-time">--:--</div>
-                        <div class="location">
-                            <span id="city-name">Loading...</span>
-                        </div>
+                        
+                        
+                            <!-- Temperature and weather details on the left -->
+                            <div class="weather-main-info">
+                                <!-- Weather Icon to the left -->
+                                <div class="weather-icon-container">
+                                    <img id="weather-icon" src="" alt="Weather Icon" style="width: 200px; height: 200px;">
+                                </div>
+                                
+                                <!-- Temperature on the right -->
+                                <div class="temperature">
+                                    <span id="temperature-value">--</span>
+                                    <sup class="degree-symbol">°</sup>
+                                    <span class="temp-circle"></span>
+                                </div>
+                                
+                                <!-- Weather details (humidity and wind) on the far right -->
+                                <div class="weather-details-inline">
+                                    <p>
+                                        <img src="assets/animeradeIkoner/humidity.svg" alt="Humidity Icon" class="weather-icon-small">
+                                        <span id="humidity-value">--%</span>
+                                    </p>
+                                    <p>
+                                        <img src="assets/animeradeIkoner/wind.svg" alt="Wind Icon" class="weather-icon-small">
+                                        <span id="wind-speed">-- km/h</span>
+                                    </p>
+                                </div>
+                            </div>
+                        
+                    
                         <div class="weather-condition">
                             <span id="weather-description">---</span>
                         </div>
                     </div>
+                    
+                    
+                    
+                    
+ 
+                    <!-- New Hourly Forecast Section -->
+                    <div class="hourly-forecast-section">
+                  
+                    <div id="hourly-forecast-container">
+                    <!-- Hourly forecast data will be dynamically inserted here -->
+                        </div>
+                    </div>
+                    
+                    
+                    
                     
                     <!-- Forecast Section -->
                     <div class="forecast-section">
@@ -36,16 +78,24 @@
                         </div>
                     </div>
                 </div>
-
+ 
                 <!-- Right Section: Search, Favorites, and Weather Details -->
                 <div class="weather-right">
+ 
+                    <div id="greeting-message" class="greeting">
+                            <h2 id="greeting-text"></h2>
+                            <p id="current-time">
+                                <span id="hours"></span><span id="blinking-colon">:</span><span id="minutes"></span>
+                            </p>
+                            </div>
+ 
                     <!-- Search Section -->
                     <div class="search-section">
-                        <input id="city-input" type="text" placeholder="Search city..." />
+                        <input id="city-input" type="text" placeholder="Search..." />
                         <button id="get-weather-btn"><i class="fas fa-search"></i></button>
                         <button id="save-favorite-btn">Add Favorite</button>
                     </div>
-
+ 
                     <!-- Favorites Section -->
                     <div class="favorites-container">
                         <h2>Favorites</h2>
@@ -53,7 +103,7 @@
                             <!-- Favorite cities will be displayed here -->
                         </ul>
                     </div>
-
+ 
                     <!-- Weather Details Section -->
                     <div class="weather-details">
                         <h3>Weather Details</h3>
@@ -62,22 +112,23 @@
                         <p>Wind: <span id="wind-speed">-- km/h</span></p>
                         <p>Rain: <span id="rain-amount">-- mm</span></p>
                     </div>
-
+ 
                     <!-- About Section -->
                     <div class="about-section">
                         <a href="about.html" class="about-button">About</a>
                     </div>
                 </div>
             </div>
-
+ 
             <!-- Footer -->
             <div class="footer">
                 © 2024 WeatherNow Group
             </div>
         </div>
     </div>
-
+ 
     <!-- Link to your JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
+ 
