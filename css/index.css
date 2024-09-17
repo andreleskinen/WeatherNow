@@ -28,12 +28,15 @@ h1 {
     position: relative;
     font-family: 'Georgia', serif;  /* Elegant serif font for a clean look */
     text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.1);
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.1);
     border-bottom: 2px solid transparent;
     transition: border-color 0.4s ease, color 0.4s ease;
 }
 
 /* Hover Effect for Heading */
 h1:hover {
+    border-bottom: 2px solid #0277bd;
+    color: #0277bd;
     border-bottom: 2px solid #0277bd;
     color: #0277bd;
 }
@@ -49,8 +52,10 @@ h1:hover {
     flex: 1;
     padding: 50px;
     background-color: #9e9494;
+    background-color: #9e9494;
     background-size: cover;
     background-position: center;
+    box-shadow: 0 4px 8px rgba(104, 87, 87, 0.1);
     box-shadow: 0 4px 8px rgba(104, 87, 87, 0.1);
     overflow: auto;
     box-sizing: border-box;
@@ -59,9 +64,14 @@ h1:hover {
 /* Layout Container */
 .container {
     font-size: x-small;
+    font-size: x-small;
     display: flex;
     flex-direction: column;
+    flex-direction: column;
     justify-content: space-between;
+    background-color: rgba(200, 204, 165, 0.9);
+    padding: 100px;
+    border-radius: 20px;
     background-color: rgba(200, 204, 165, 0.9);
     padding: 100px;
     border-radius: 20px;
@@ -108,12 +118,15 @@ h1:hover {
 /* Temperature and Details */
 .temperature {
     font-size: 60px;
+    font-size: 60px;
     font-weight: bold;
     color: #0698ed;
     display: flex;
     align-items: center; /* Align the temperature and icon in the center */
+    display: flex;
+    align-items: center; /* Align the temperature and icon in the center */
 }
-
+ 
 #temperature-value {
     font-size: 60px;
 }
@@ -155,7 +168,7 @@ h1:hover {
     font-size: 14px;
     margin: 0;
 }
-
+ 
 .weather-condition {
     font-size: 24px;
     color: #040404;
@@ -166,7 +179,7 @@ h1:hover {
 .forecast-section {
     margin-top: 1px;
 }
-
+ 
 #forecast-container {
     display: flex;
     justify-content: space-between;
@@ -208,15 +221,20 @@ h1:hover {
 .weather-right {
     padding-left: 20px;
 }
-
+ 
 /* Search Section */
 .search-section {
     display: flex;
     justify-content: center;
     gap: 5px;
+    justify-content: center;
+    gap: 5px;
 }
-
+ 
 #city-input {
+    width: 150px;
+    padding: 5px;
+    font-size: 14px;
     width: 150px;
     padding: 5px;
     font-size: 14px;
@@ -249,24 +267,27 @@ h1:hover {
     border-radius: 5px;
     padding: 10px;
 }
-
+ 
 #favorites-list {
     list-style: none;
     padding: 0;
     margin: 0;
     color: #e1cfcf;
+    color: #e1cfcf;
 }
-
+ 
 #favorites-list li {
     position: relative;
     margin: 10px 0;
     padding: 5px 0;
     border-bottom: 1px solid transparent;
     color: #ffffff;
+    color: #ffffff;
 }
-
+ 
 #favorites-list a {
     text-decoration: none;
+    color: #ffffff;
     color: #ffffff;
     font-size: small;
 }
@@ -325,7 +346,7 @@ h1:hover {
     font-size: 12px;
     cursor: pointer;
 }
-
+ 
 .delete-btn:hover {
     background-color: #b00505;
 }
@@ -343,11 +364,11 @@ h1:hover {
     margin-top: 20px;
     margin-left: 2%;
 }
-
+ 
 .about-button:hover {
     background-color: #01579b;
 }
-
+ 
 /* Footer */
 .footer {
     text-align: center;
@@ -363,13 +384,14 @@ h1:hover {
         flex-direction: row;
         padding: 50px;
     }
-
+ 
     .weather-left,
     .weather-right {
         flex: 1;
     }
 
     h1 {
+        font-size: 48px;
         font-size: 48px;
     }
 }
@@ -380,16 +402,18 @@ h1:hover {
         flex-direction: column;
         padding: 20px;
     }
-
+ 
     .weather-main {
+        font-size: medium;
         font-size: medium;
         padding: 30px;
     }
-
+ 
     #city-input {
         width: calc(90% - 70px);
+        width: calc(90% - 70px);
     }
-
+ 
     #get-weather-btn {
         width: 60px;
     }
@@ -406,13 +430,20 @@ h1:hover {
         color: #0698ed;
         display: flex;
         align-items: center;
+        font-size: 60px;
+        font-weight: bold;
+        color: #0698ed;
+        display: flex;
+        align-items: center;
     }
-
+ 
     sup {
         font-size: 20px;
     }
-
+ 
     h1 {
+        font-size: 8vw;
+        letter-spacing: 1px;
         font-size: 8vw;
         letter-spacing: 1px;
     }
