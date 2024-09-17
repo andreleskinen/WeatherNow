@@ -1,3 +1,9 @@
+
+
+
+
+
+
 /* Global Styles */
 body {
     font-family: Arial, sans-serif;
@@ -9,7 +15,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
- 
+
 /* Heading Styles */
 h1 {
     font-size: 48px;
@@ -22,46 +28,56 @@ h1 {
     position: relative;
     font-family: 'Georgia', serif;  /* Elegant serif font for a clean look */
     text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.1);
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.1);
     border-bottom: 2px solid transparent;
     transition: border-color 0.4s ease, color 0.4s ease;
 }
- 
+
 /* Hover Effect for Heading */
 h1:hover {
     border-bottom: 2px solid #0277bd;
     color: #0277bd;
+    border-bottom: 2px solid #0277bd;
+    color: #0277bd;
 }
- 
+
 /* Site Content */
 .site-content {
     flex: 1;
 }
- 
- 
+
+
 /* Weather Main Section */
 .weather-main {
     flex: 1;
     padding: 50px;
     background-color: #9e9494;
+    background-color: #9e9494;
     background-size: cover;
     background-position: center;
+    box-shadow: 0 4px 8px rgba(104, 87, 87, 0.1);
     box-shadow: 0 4px 8px rgba(104, 87, 87, 0.1);
     overflow: auto;
     box-sizing: border-box;
 }
- 
+
 /* Layout Container */
 .container {
     font-size: x-small;
+    font-size: x-small;
     display: flex;
+    flex-direction: column;
     flex-direction: column;
     justify-content: space-between;
     background-color: rgba(200, 204, 165, 0.9);
     padding: 100px;
     border-radius: 20px;
+    background-color: rgba(200, 204, 165, 0.9);
+    padding: 100px;
+    border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
- 
+
 /* Top Bar (Location and Date) */
 .top-bar {
     display: flex;
@@ -70,40 +86,43 @@ h1:hover {
     width: 100%;
     padding: 10px 20px;
 }
- 
+
 .location {
     font-size: 16px;
     color: #333;
     font-weight: bold;
 }
- 
+
 .date-time {
     font-size: 16px;
     color: rgba(51, 51, 51, 0.6);
     font-weight: 400;
 }
- 
+
 /* Current Weather Info */
 .current-weather-info {
     text-align: center;
     margin-bottom: 60px;
 }
- 
+
 .weather-main-info {
     display: flex;
     align-items: center;  /* Align items vertically in the center */
     justify-content: flex-start;  /* Align items to the left */
     gap: 20px;  /* Add spacing between the icon, temperature, and details */
 }
- 
- 
- 
- 
+
+
+
+
 /* Temperature and Details */
 .temperature {
     font-size: 60px;
+    font-size: 60px;
     font-weight: bold;
     color: #0698ed;
+    display: flex;
+    align-items: center; /* Align the temperature and icon in the center */
     display: flex;
     align-items: center; /* Align the temperature and icon in the center */
 }
@@ -111,38 +130,38 @@ h1:hover {
 #temperature-value {
     font-size: 60px;
 }
- 
+
 .temperature-details {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
- 
+
 .weather-icon-container {
     width: 50px;  /* Control the size of the weather icon */
     height: 50px;
 }
- 
+
 .weather-icon {
     width: 100%;
     height: 100%;
 }
- 
+
 .weather-icon-small {
     width: 20px;
     height: 20px;
     margin-right: 5px;
     vertical-align: middle;
 }
- 
+
 .weather-details-inline {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-left: 20px;
 }
- 
+
 .weather-details-inline p {
     display: flex;
     align-items: center;
@@ -155,7 +174,7 @@ h1:hover {
     color: #040404;
     margin-top: 10px;
 }
- 
+
 /* Forecast Section */
 .forecast-section {
     margin-top: 1px;
@@ -168,36 +187,36 @@ h1:hover {
     background-color: transparent;
     padding: 20px;
 }
- 
+
 .forecast {
     flex: 1;
     text-align: center;
     padding: 10px;
 }
- 
+
 .forecast .day {
     font-weight: bold;
     color: #333;
 }
- 
+
 .forecast .degree {
     font-size: 24px;
     color: #333;
 }
- 
+
 .degree-symbol {
     vertical-align: super;  /* Moves the ° symbol higher */
     font-size: 70%;  /* Adjust the size if needed */
     position: relative;
     top: -7px;  /* Adjust this value to control how much higher it appears */
 }
- 
- 
+
+
 .forecast .weather-description {
     font-size: 14px;
     color: #b1b0b0;
 }
- 
+
 /* Right Section (Search, Favorites, and Details) */
 .weather-right {
     padding-left: 20px;
@@ -208,16 +227,21 @@ h1:hover {
     display: flex;
     justify-content: center;
     gap: 5px;
+    justify-content: center;
+    gap: 5px;
 }
  
 #city-input {
     width: 150px;
     padding: 5px;
     font-size: 14px;
+    width: 150px;
+    padding: 5px;
+    font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
- 
+
 #get-weather-btn,
 #save-favorite-btn {
     padding: 10px 15px;
@@ -229,12 +253,12 @@ h1:hover {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
- 
+
 #get-weather-btn:hover,
 #save-favorite-btn:hover {
     background-color: #01579b;
 }
- 
+
 /* Favorites Section */
 .favorites-container {
     margin-top: 20px;
@@ -249,6 +273,7 @@ h1:hover {
     padding: 0;
     margin: 0;
     color: #e1cfcf;
+    color: #e1cfcf;
 }
  
 #favorites-list li {
@@ -257,54 +282,56 @@ h1:hover {
     padding: 5px 0;
     border-bottom: 1px solid transparent;
     color: #ffffff;
+    color: #ffffff;
 }
  
 #favorites-list a {
     text-decoration: none;
     color: #ffffff;
+    color: #ffffff;
     font-size: small;
 }
- 
+
 /* Hourly Forecast Section */
 .hourly-forecast-section {
     margin-top: 20px;
     text-align: center;
 }
- 
+
 .hourly-forecast-section h3 {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
 }
- 
+
 #hourly-forecast-container {
     display: flex;
     justify-content: space-around;
     overflow-x: auto;
 }
- 
+
 .hour {
     flex: 1;
     text-align: center;
     margin: 0 10px;
 }
- 
+
 .hour-time {
     font-size: 14px;
     color: #666;
 }
- 
+
 .hour-temp {
     font-size: 20px;
     font-weight: bold;
     color: #0277bd;
 }
- 
+
 .hour-description {
     font-size: 12px;
     color: #888;
 }
- 
+
 /* Delete Button */
 .delete-btn {
     position: absolute;
@@ -323,7 +350,7 @@ h1:hover {
 .delete-btn:hover {
     background-color: #b00505;
 }
- 
+
 /* About Button */
 .about-button {
     display: inline-block;
@@ -349,7 +376,7 @@ h1:hover {
     color: white;
     padding-top: 5%;
 }
- 
+
 /* Responsive Design */
 /* For large screens */
 @media (min-width: 768px) {
@@ -362,12 +389,13 @@ h1:hover {
     .weather-right {
         flex: 1;
     }
- 
+
     h1 {
+        font-size: 48px;
         font-size: 48px;
     }
 }
- 
+
 /* For small screens */
 @media (max-width: 767px) {
     .container {
@@ -377,24 +405,31 @@ h1:hover {
  
     .weather-main {
         font-size: medium;
+        font-size: medium;
         padding: 30px;
     }
  
     #city-input {
+        width: calc(90% - 70px);
         width: calc(90% - 70px);
     }
  
     #get-weather-btn {
         width: 60px;
     }
- 
+
     .celsius-icon {
         width: 20px;
         height: 20px;
         margin-left: 5px; /* Adds space between temperature and Celsius icon */
     }
- 
+
     .temperature {
+        font-size: 60px;
+        font-weight: bold;
+        color: #0698ed;
+        display: flex;
+        align-items: center;
         font-size: 60px;
         font-weight: bold;
         color: #0698ed;
@@ -409,15 +444,17 @@ h1:hover {
     h1 {
         font-size: 8vw;
         letter-spacing: 1px;
+        font-size: 8vw;
+        letter-spacing: 1px;
     }
- 
+
     #forecast-container {
         font-size: small;
         margin-left: -2%;
         margin-top: -25%;
         margin-bottom: 2%;
     }
- 
+
     .current-weather-info {
         display: flex;
         flex-direction: column;
@@ -428,7 +465,7 @@ h1:hover {
         text-align: center;
         height: 100%;
     }
- 
+
     .favorites-container {
         margin-right: 7%;
     }
