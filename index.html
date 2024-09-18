@@ -19,6 +19,11 @@
             <div class="container weather-container">
                 <!-- Left Section: Weather Data -->
                 <div class="weather-left">
+                    <div id="greeting-message" class="greeting">
+                        <h2 id="greeting-text"></h2>
+                        <p id="current-time"><span id="hours"></span><span id="blinking-colon">:</span><span id="minutes"></span></p>
+                        
+                    </div>
                     <div class="current-weather-info">
                         <div class="top-bar">
                             <div id="city-name" class="location">Your Location</div>
@@ -64,7 +69,7 @@
                     
                     <!-- Weekly Forecast Section -->
                     <div class="forecast-section">
-                        <h3>7-day Forecast</h3>
+                        <h3>5-day Forecast</h3>
                         <div id="forecast-container">
                             <!-- Forecast data dynamically inserted here -->
                         </div>
@@ -74,11 +79,7 @@
                 <!-- Right Section: Search, Favorites, and Weather Details -->
                 <div class="weather-right">
                     <!-- Greeting Section -->
-                    <div id="greeting-message" class="greeting">
-                        <h2 id="greeting-text"></h2>
-                        <p id="current-time"><span id="hours"></span><span id="blinking-colon">:</span><span id="minutes"></span></p>
-                    </div>
-
+                    
                     <!-- Search Section -->
                     <div class="search-section">
                         <input id="city-input" type="text" placeholder="Search for a city..." />

@@ -7,13 +7,19 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-
-    padding: -20px;
 }
+
+.greeting{
+   margin-top: -10%;
+    margin-bottom: 5%;
+   padding: 0px;
+}
+
+
 h1 {
     font-size: 48px;
     font-weight: 600;
-    color: #dcdbdb;
+    color:  #0277bd;
     text-align: center;
     letter-spacing: 2px;
     margin-top:5px;
@@ -29,14 +35,18 @@ h1 {
     transition: border-color 0.4s ease, color 0.4s ease;
 }
 h2{
-    color: #0277bd ;
+    color:  #1E88E5;
     font-size: 40px;
 }
 
 /* Hover Effect */
 h1:hover {
-    border-bottom: 2px solid #0277bd;  /* Subtle underline on hover */
-    color: #0277bd;  /* Color change on hover */
+    border-bottom: 2px solid #dcdbdb;  /* Subtle underline on hover */
+    color: #dcdbdb;  /* Color change on hover */
+}
+
+.weather-details {
+    display: none;
 }
 
 
@@ -44,7 +54,7 @@ h1:hover {
 .container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     background: rgba(255, 255, 255, 0.9);
     border-radius: 20px;
     padding: 40px;
@@ -104,6 +114,7 @@ h1:hover {
 
 /* Weather Right Section */
 .weather-right {
+    margin-top: 60px;
     flex: 1;
     padding-left: 20px;
     text-align: center;
@@ -172,8 +183,9 @@ h1:hover {
 }
 
 .weather-details p {
-    font-size: 16px;
+    font-size: 70px;
     margin: 5px 0;
+   
 }
 
 /* About Button */
@@ -268,17 +280,16 @@ h1:hover {
 
 /* Footer */
 .footer {
+    padding: 20px;
     text-align: center;
-    background: #1E88E5;
-    color: white;
-    padding: 10px;
+    position: relative;
     width: 100%;
-    font-size: 20px;
-    margin-top: auto;
+    color:  #1E88E5;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    
     .container {
         flex-direction: column;
         align-items: center;
@@ -326,6 +337,40 @@ h1:hover {
 }
 
 @media (max-width: 480px) {
+
+    .greeting {
+       
+        text-align: center;
+        width: 100%;
+        padding: 2px 0;
+        
+    }
+
+    
+   
+        
+    #greeting-text {
+        font-size: 39px;
+        color: #0D47A1;
+        margin-bottom: -16px;
+        margin-top: 11%;
+    }
+   
+
+    
+    #current-time {
+        margin-top: 15px;
+        font-size: 40px;
+        color: #1E88E5;
+        margin-bottom: 5px;
+    }
+   
+    .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        margin-top: 0;
+    }
     h1.main-heading {
         font-size: 49px;
        margin-right: -50%;
@@ -346,14 +391,16 @@ h1:hover {
     }
 
     .search-btn,
-.favorite-btn {
-    background-color: #1E88E5;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    margin-left:35px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    .favorite-btn 
+    {
+       background-color: #1E88E5;
+       color: white;
+       border: none;
+       padding: 10px;
+       border-radius: 5px;
+       margin-left:35px;
+       cursor: pointer;
+       transition: background-color 0.3s ease;
+    }
 }
-}
+
