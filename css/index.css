@@ -190,6 +190,7 @@ h1:hover {
 
 /* About Button */
 .about-button {
+   
     display: inline-block;
     background-color: #0277bd;
     color: white;
@@ -218,6 +219,8 @@ h1:hover {
 #favorites-list {
     list-style: none; /* Tar bort standardpunkterna från listan */
     padding: 0;
+    justify-content:flex-start;
+    
 }
 
 #favorites-list li {
@@ -300,6 +303,7 @@ h1:hover {
 
     .weather-left,
     .weather-right {
+        margin-top: 10px;
         padding: 10px;
     }
 
@@ -332,7 +336,7 @@ h1:hover {
 
     #forecast-container,
     #hourly-forecast-container {
-        justify-content: flex-start;
+        justify-content: center;
     }
 }
 
@@ -345,8 +349,14 @@ h1:hover {
         padding: 2px 0;
         
     }
+    .about-button {
+
+        margin-left: 25%;
+    }
+   
 
     
+
    
         
     #greeting-text {
