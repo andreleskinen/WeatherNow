@@ -198,7 +198,7 @@ function displayWeather(dailyTemps, cityName, isCurrentLocation = false, current
     }
 
     // Display forecast for the next 5 days, skipping the first item (which is today)
-    dailyTemps.slice(1, 6).forEach(day => { // Skip today (index 0)
+    dailyTemps.slice(1, 7).forEach(day => { // Skip today (index 0)
         const dayDate = new Date(day.datetime);  // Ensure correct date
         const dayName = dayDate.toLocaleDateString('en-US', { weekday: 'short' }); // Display the day with 3 letters (e.g., Mon)
         const iconFileName = iconMapping[day.icon.toLowerCase()] || 'default-icon.svg';  // Use your icon mapping
