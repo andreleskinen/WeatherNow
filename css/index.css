@@ -3,55 +3,53 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f2f2f2;
-    color:#1E88E5;
+    color: #1E88E5;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
- 
-.greeting{
-   margin-top: -10%;
-    margin-bottom: 5%;
-   padding: 0px;
+
+body, .container {
+    overflow-x: hidden;
 }
- 
- 
+
+.greeting {
+    margin: 0; /* Remove negative margin */
+    padding: 0px;
+}
+
 h1 {
     font-size: 48px;
     font-weight: 600;
-    color:  #0277bd;
+    color: #0277bd;
     text-align: center;
     letter-spacing: 2px;
-    margin-top:5px;
+    margin-top: 5px;
     margin-bottom: 30px;
     position: relative;
-    font-family: 'Georgia', serif;  /* Elegant serif font for a clean look */
-    
-    /* Subtle Shadow for depth */
-    text-shadow: 1px 1px 5px white(255, 255, 255, 0.1);
-    
-    /* Border effect on hover */
+    font-family: 'Georgia', serif;
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.1);
     border-bottom: 2px solid transparent;
     transition: border-color 0.4s ease, color 0.4s ease;
 }
-h2{
-    color:  #1E88E5;
+
+h2 {
+    color: #1E88E5;
     font-size: 40px;
 }
- 
-/* Hover Effect */
+
 h1:hover {
-    border-bottom: 2px solid #dcdbdb;  /* Subtle underline on hover */
-    color: #dcdbdb;  /* Color change on hover */
+    border-bottom: 2px solid #dcdbdb;
+    color: #dcdbdb;
 }
- 
+
 .weather-details {
     display: none;
 }
- 
- 
-/* Container Styles */
+
 .container {
+    max-width: 100%; /* Ensure it doesn't overflow */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -61,13 +59,16 @@ h1:hover {
     margin: 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
- 
-/* Weather Left Section */
+
+/* Ensure the forecast section stays within the weather-left */
 .weather-left {
     flex: 2;
     padding: 20px;
+    position: relative;
+    max-width: 100%; /* Ensure weather-left controls the content width */
+    box-sizing: border-box; /* Ensure padding is included in width calculation */
 }
- 
+
 .weather-main-info {
     display: flex;
     flex-wrap: wrap;
@@ -75,35 +76,35 @@ h1:hover {
     justify-content: space-around;
     margin-bottom: 20px;
 }
- 
+
 .weather-icon-large {
     width: 150px;
     height: 150px;
 }
- 
+
 .temperature {
     font-size: 64px;
     font-weight: bold;
     color: #1E88E5;
 }
- 
+
 .degree-symbol {
     font-size: 24px;
     vertical-align: top;
     color: #1E88E5;
 }
- 
+
 .weather-details-inline {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
- 
+
 .weather-details-inline p {
     margin: 5px 0;
     font-size: 16px;
 }
- 
+
 .weather-condition {
     font-size: 24px;
     font-weight: bold;
@@ -111,23 +112,22 @@ h1:hover {
     text-align: center;
     margin-top: 20px;
 }
- 
-/* Weather Right Section */
+
 .weather-right {
     margin-top: 60px;
     flex: 1;
     padding-left: 20px;
     text-align: center;
+    max-width: 100%;
 }
- 
-/* Search Section */
+
 .search-section {
     display: flex;
     justify-content: center;
     gap: 10px;
     margin-bottom: 20px;
 }
- 
+
 #city-input {
     width: 200px;
     padding: 10px;
@@ -135,7 +135,7 @@ h1:hover {
     border: 2px solid #1E88E5;
     border-radius: 5px;
 }
- 
+
 .search-btn,
 .favorite-btn {
     background-color: #1E88E5;
@@ -146,49 +146,45 @@ h1:hover {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
- 
+
 .search-btn:hover,
 .favorite-btn:hover {
     background-color: #1565C0;
 }
- 
-/* Favorites Section */
+
 .favorites-container {
     background: #E3F2FD;
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 20px;
 }
- 
+
 .favorites-container h2 {
     color: #0D47A1;
     font-size: 30px;
 }
- 
+
 #favorites-list li {
     margin: 10px 0;
     color: #0D47A1;
 }
- 
-/* Weather Details Section */
+
 .weather-details {
     background: #E3F2FD;
     border-radius: 10px;
     padding: 20px;
 }
- 
+
 .weather-details h3 {
     color: #0D47A1;
     margin-bottom: 15px;
 }
- 
+
 .weather-details p {
     font-size: 70px;
     margin: 5px 0;
-   
 }
- 
-/* About Button */
+
 .about-button {
     display: inline-block;
     background-color: #0277bd;
@@ -200,206 +196,238 @@ h1:hover {
     transition: background-color 0.3s ease;
     margin-top: 20px;
 }
- 
+
 .about-button:hover {
     background-color: #1565C0;
     transform: scale(1.05);
 }
- 
-/* Forecast Section */
+
+
+
+
+
+
+
+
+
+
+/* Forecast and Hourly Forecast Styling */
 .forecast-section,
 .hourly-forecast-section {
     background: rgba(0, 0, 0, 0.05);
     padding: 20px;
     border-radius: 10px;
     margin-top: 20px;
+    width: 100%;
+    box-sizing: border-box; /* Ensure padding doesn't cause overflow */
 }
- 
-#favorites-list {
-    list-style: none; /* Tar bort standardpunkterna från listan */
-    padding: 0;
-}
- 
-#favorites-list li {
-    position: relative;
-    margin: 10px 0;
-    padding: 5px 0;
-    border-bottom: 1px solid transparent; /* Du kan ta bort eller justera detta om du inte vill ha en underlinje */
-    color: #f3efef;
-}
- 
-#favorites-list a {
-    text-decoration: none; /* Tar bort understrykningen */
-    color: #040404; /* Ändra detta till önskad färg */
-    font-size: small;
-    padding: 10%;
-  
-    
-}
- 
- 
-.forecast-section h3,
-.hourly-forecast-section h3 {
-    color: #0D47A1;
-    margin-bottom: 15px;
-}
- 
+
+/* Ensure forecast stays within weather-left */
 #forecast-container,
 #hourly-forecast-container {
     display: flex;
-    overflow-x: auto;
+    justify-content: space-between; /* Spread forecast items evenly */
+    gap: 10px;
+    padding: 10px 0;
+    max-width: calc(100% - 40px); /* Ensure the forecast stays within the .weather-left container */
+    margin-left: auto; /* Align it correctly within the weather-left */
+    margin-right: auto;
+    box-sizing: border-box; /* Account for padding */
 }
- 
+
+
+/* Default .hour styling for larger screens */
 .forecast,
 .hour {
-    min-width: 80px;
+    flex: 1 1 80px; /* Each item will take up equal space and have a minimum width */
     text-align: center;
-    margin: 0 10px;
+    background-color: white;
+    padding: 10px;
+    margin: 0 5px; /* Add space between items */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
- 
+
 .forecast .day,
-.hour-time {
+.hour .hour-time {
     font-weight: bold;
     font-size: 16px;
     color: #0D47A1;
 }
- 
- 
- 
+
 .forecast .degree,
-.hour-temp {
+.hour .hour-temp {
     font-size: 20px;
     color: #1E88E5;
 }
- 
+
 .forecast .weather-description,
-.hour-description {
+.hour .hour-description {
     font-size: 14px;
     color: #555;
 }
- 
-/* Footer */
+
+/* Mobile Adjustments - for iPhone size (below 480px) */
+@media (max-width: 480px) {
+    /* Ensure forecast items are aligned and centered */
+    #forecast-container,
+    #hourly-forecast-container {
+        flex-direction: column; /* Stack items vertically */
+        justify-content: center;
+        align-items: center; /* Center the items */
+        width: 100%; /* Ensure the width does not exceed weather-left */
+        margin: 0 auto; /* Center the container */
+        padding: 0 20px; /* Ensure even padding on both left and right */
+    }
+
+    .forecast,
+    .hour {
+        width: 100%; /* Ensure the cards are narrow */
+        max-width: 250px; /* Set a max width for each card */
+        margin-bottom: 15px; /* Add space between stacked items */
+        padding: 8px; /* Smaller padding for mobile */
+        text-align: center;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .forecast .day,
+    .hour .hour-time {
+        font-size: 12px; /* Smaller font for time */
+    }
+
+    .forecast .degree,
+    .hour .hour-temp {
+        font-size: 16px; /* Slightly smaller temperature font */
+    }
+
+    .forecast .weather-description,
+    .hour .hour-description {
+        font-size: 10px; /* Smaller description text */
+    }
+}
+
+
+
+
+
+
+
+
 .footer {
     padding: 20px;
     text-align: center;
     position: relative;
     width: 100%;
-    color:  #1E88E5;
+    color: #1E88E5;
 }
- 
+
 /* Responsive Design */
 @media (max-width: 768px) {
-    
     .container {
         flex-direction: column;
         align-items: center;
         padding: 20px;
-        margin-right: -55%;
-        margin-left: -1%;
+        margin: 0;
+        max-width: 100%; /* Prevent overflow */
     }
- 
+
     .weather-left,
     .weather-right {
         padding: 10px;
     }
- 
+
     .weather-main-info {
         flex-direction: column;
     }
- 
+
     .weather-icon-large {
         width: 120px;
         height: 120px;
     }
- 
+
     .temperature {
         font-size: 48px;
     }
- 
+
     .search-section {
         flex-direction: column;
     }
- 
+
     #city-input {
         width: 100%;
         margin-bottom: 10px;
     }
- 
+
     .favorites-container,
     .weather-details {
         width: 100%;
     }
- 
+
     #forecast-container,
     #hourly-forecast-container {
         justify-content: flex-start;
     }
 }
- 
+
 @media (max-width: 480px) {
- 
     .greeting {
-       
         text-align: center;
         width: 100%;
         padding: 2px 0;
-        
     }
- 
-    
-   
-        
+
     #greeting-text {
         font-size: 39px;
         color: #0D47A1;
         margin-bottom: -16px;
         margin-top: 11%;
     }
-   
- 
-    
+
     #current-time {
         margin-top: 15px;
         font-size: 40px;
         color: #1E88E5;
         margin-bottom: 5px;
     }
-   
+
     .container {
         flex-direction: column;
         align-items: center;
         padding: 20px;
         margin-top: 0;
+        max-width: 100%; /* Prevent overflow */
     }
+
     h1.main-heading {
         font-size: 49px;
-       margin-right: -50%;
+        margin-right: 0; /* Remove negative margin */
+        text-align: center;
     }
- 
+
     .temperature {
         font-size: 70px;
     }
- 
+
     .degree-symbol {
         font-size: 20px;
     }
- 
+
     .forecast,
     .hour {
-        min-width: 60px;
-        margin: 0 5px;
+        min-width: 100%; /* Display forecast items vertically */
+        margin-bottom: 15px;
     }
- 
+
     .search-btn,
-    .favorite-btn
-    {
-       background-color: #1E88E5;
-       color: white;
-       border: none;
-       padding: 10px;
-       border-radius: 5px;
-       margin-left:35px;
-       cursor: pointer;
-       transition: background-color 0.3s ease;
+    .favorite-btn {
+        background-color: #1E88E5;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        margin-left: 0; /* Remove left margin */
+        cursor: pointer;
+        transition: background-color 0.3s ease;
     }
 }
