@@ -12,7 +12,7 @@
 <body>
     <div class="site-content">
         <!-- Main Weather Section -->
-        <div class="weather-main">
+        <div class="weather-main" id="weather-display">
             <h1 class="main-heading">WeatherNow</h1>
             
             <!-- Dynamic Background for Current Weather -->
@@ -22,7 +22,6 @@
                     <div id="greeting-message" class="greeting">
                         <h2 id="greeting-text"></h2>
                         <p id="current-time"><span id="hours"></span><span id="blinking-colon">:</span><span id="minutes"></span></p>
-                        
                     </div>
                     <div class="current-weather-info">
                         <div class="top-bar">
@@ -78,8 +77,6 @@
                 
                 <!-- Right Section: Search, Favorites, and Weather Details -->
                 <div class="weather-right">
-                    <!-- Greeting Section -->
-                    
                     <!-- Search Section -->
                     <div class="search-section">
                         <input id="city-input" type="text" placeholder="Search for a city..." />
