@@ -24,6 +24,7 @@
     'wind': 'wind.svg'
 };
 
+// Wait until the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function () {
     const greetingTextElement = document.getElementById('greeting-text');
     const hoursElement = document.getElementById('hours');
@@ -93,7 +94,57 @@ document.addEventListener('DOMContentLoaded', function () {
             getCoordinatesAndWeather(city);
         }
     });
+
+    // Button to create a desktop shortcut
+    document.getElementById('create-shortcut-btn').addEventListener('click', function () {
+        // Website URL and title for the shortcut
+        const websiteUrl = window.location.href;
+        const websiteTitle = "WeatherNow";
+
+        // Create a .url file content
+        const shortcutContent = `[InternetShortcut]\nURL=${websiteUrl}\n`;
+
+        // Create a Blob object with the shortcut content
+        const blob = new Blob([shortcutContent], { type: 'text/plain' });
+
+        // Create a download link
+        const downloadLink = document.createElement('a');
+        downloadLink.href = URL.createObjectURL(blob);
+        downloadLink.download = `${websiteTitle}.url`;
+
+        // Simulate a click to trigger the download
+        downloadLink.click();
+
+        // Clean up
+        URL.revokeObjectURL(downloadLink.href);
+    });
+
+    // Initialize the autocomplete for the search input
+    const cityInput = document.getElementById('city-input');
+    
+    // Create autocomplete object, restricting to cities
+    const autocomplete = new google.maps.places.Autocomplete(cityInput, {
+        types: ['(cities)'],  // Restrict results to cities only
+    });
+
+    // Event listener for when a user selects a place from the autocomplete dropdown
+    autocomplete.addListener('place_changed', function () {
+        const place = autocomplete.getPlace();
+
+        if (place.geometry) {
+            const lat = place.geometry.location.lat().toFixed(4);
+            const lon = place.geometry.location.lng().toFixed(4);
+            const cityName = place.name;
+
+            // Fetch weather for the selected place
+            getWeather(lat, lon, cityName);
+        } else {
+            alert('Please select a valid city.');
+        }
+    });
 });
+
+
 
 // Function to get coordinates from OpenWeatherMap API and fetch weather data
 function getCoordinatesAndWeather(city) {
@@ -106,7 +157,13 @@ function getCoordinatesAndWeather(city) {
                 const lat = data[0].lat.toFixed(4);
                 const lon = data[0].lon.toFixed(4);
                 const cityName = data[0].name;
-                getWeather(lat, lon, cityName);
+                const countryName = data[0].country;  // Extract country
+
+                // Display city and country
+                const cityDisplayName = `${cityName}, ${countryName}`;
+                
+                // Fetch weather for the city with country name
+                getWeather(lat, lon, cityDisplayName);
             } else {
                 alert('City not found.');
             }
