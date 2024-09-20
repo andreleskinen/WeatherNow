@@ -152,22 +152,60 @@ h1:hover {
     background-color: #1565C0;
 }
 
+/* Bino: Förbättrad favoritliststyling */
 .favorites-container {
-    background: #E3F2FD;
+    background: #E3F2FD; /* Ljusblå bakgrund */
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 20px;
+    width: 100%; /* Se till att den tar hela bredden */
 }
 
 .favorites-container h2 {
     color: #0D47A1;
     font-size: 30px;
+    margin-bottom: 15px;
+}
+
+#favorites-list {
+    list-style-type: none; /* Ta bort punkter från listan */
+    padding: 0;
 }
 
 #favorites-list li {
-    margin: 10px 0;
-    color: #0D47A1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: white; /* Vit bakgrund för varje lista */
+    border-radius: 5px; /* Rundade hörn */
+    margin-bottom: 10px; /* Avstånd mellan listor */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Lätt skugga */
 }
+
+#favorites-list a {
+    text-decoration: none; /* Ta bort understrykning */
+    color: #007bff; /* Blå textfärg */
+}
+
+#favorites-list a:hover {
+    text-decoration: underline;
+}
+
+.delete-btn {
+    background-color: #f8d7da; /* Röd bakgrund */
+    color: #721c24;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #f5c6cb;
+}
+
+/* Bino: Slut på favoritliststyling */
 
 .weather-details {
     background: #E3F2FD;
@@ -202,15 +240,6 @@ h1:hover {
     transform: scale(1.05);
 }
 
-
-
-
-
-
-
-
-
-
 /* Forecast and Hourly Forecast Styling */
 .forecast-section,
 .hourly-forecast-section {
@@ -222,7 +251,6 @@ h1:hover {
     box-sizing: border-box; /* Ensure padding doesn't cause overflow */
 }
 
-/* Ensure forecast stays within weather-left */
 #forecast-container,
 #hourly-forecast-container {
     display: flex;
@@ -234,7 +262,6 @@ h1:hover {
     margin-right: auto;
     box-sizing: border-box; /* Account for padding */
 }
-
 
 /* Default .hour styling for larger screens */
 .forecast,
@@ -306,13 +333,6 @@ h1:hover {
         font-size: 10px; /* Smaller description text */
     }
 }
-
-
-
-
-
-
-
 
 .footer {
     padding: 20px;
