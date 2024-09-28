@@ -323,14 +323,46 @@ function displayHourlyForecast(hourlyTemps) {
  
  
  
- 
- 
- 
- 
- 
- 
- 
- 
+document.getElementById('save-favorite-btn').addEventListener('click', function() {
+    const city = document.getElementById('city-input').value;
+    if (city) {
+        const list = document.getElementById('favorites-list');
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `${city} <button class="delete-btn">Delete</button>`;
+        list.appendChild(listItem);
+        listItem.querySelector('.delete-btn').addEventListener('click', function() {
+            list.removeChild(listItem);
+        });
+    }
+});
+
+function saveFavorite(city) {
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    if (!favorites.includes(city)) {
+        favorites.push(city);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+        displayFavorites();
+    }
+}
+
+function displayFavorites() {
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    document.getElementById('favorites-list').innerHTML = favorites.map(city => 
+        `<li>${city} <button onclick="removeFavorite('${city}')">Ta bort</button></li>`
+    ).join('');
+}
+
+function removeFavorite(city) {
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    favorites = favorites.filter(fav => fav !== city);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    displayFavorites();
+}
+
+document.addEventListener('DOMContentLoaded', displayFavorites);
+
+
+
  
  
  
